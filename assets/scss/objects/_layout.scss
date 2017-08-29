@@ -1,0 +1,14 @@
+.o-layout {
+	display: flex;
+	justify-content: center;
+}
+
+.o-layout__main {
+	flex-grow: 1;
+}
+
+.o-layout__side {
+	@include spacing(padding-left, 4rem);
+	flex-basis: 400px;
+	flex-shrink: 0;
+}

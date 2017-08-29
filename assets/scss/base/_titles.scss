@@ -1,0 +1,95 @@
+@mixin h0 {
+	@include fontsize(72px);
+	@include baseline(80/72, 0.74);
+	line-height: (80/72);
+	font-weight: 300;
+
+	padding-top: 0 !important;
+	@include spacing(padding-bottom, 2rem);
+}
+
+@mixin h1 {
+	@include fontsize(40px);
+	@include baseline(50/40, 0.74);
+	line-height: (50/40);
+	font-weight: 300;
+}
+
+@mixin h2 {
+	@include fontsize(30px);
+	@include baseline(40/30, 0.74);
+	line-height: (40/30);
+	font-weight: 300;
+}
+
+@mixin h3 {
+	@include fontsize(24px);
+	@include baseline(34/24, 0.74);
+	line-height: (34/24);
+	font-weight: 400;
+}
+
+@mixin h4 {
+	@include fontsize(20px);
+	@include baseline(30/20, 0.74);
+	line-height: (30/20);
+	font-weight: 300;
+}
+
+@mixin h5 {
+	@include fontsize(15px);
+	@include baseline(17/15, 0.74);
+	line-height: (17/15);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.28em;
+}
+
+@mixin h6 {
+	@include fontsize(14px);
+	@include baseline(15/14, 0.74);
+	line-height: (15/14);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.17em;
+}
+
+h1 { @include h1 }
+h2 { @include h2 }
+h3 { @include h3 }
+h4 { @include h4 }
+h5 { @include h5 }
+h6 { @include h6 }
+
+.entry-content {
+
+	h1 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, 2rem);
+	}
+
+	h2 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, 2rem);
+	}
+
+	h3 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, 2rem);
+	}
+
+	h4 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, 2rem);
+	}
+
+	h5 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, 1rem);
+	}
+
+	h6 {
+		@include spacing(padding-top, .5rem);
+		@include spacing(padding-bottom, .5rem);
+	}
+}

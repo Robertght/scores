@@ -1,0 +1,228 @@
+
+$input-border-color: 				#E0E0E0 	!default;
+$input-background-color: 			#FFFFFF 	!default;
+
+$input-focus-border-color:  		#383838		!default;
+$input-focus-background-color:  	#FFFFFF		!default;
+
+$input-disabled-color: 				#FFFFFF 	!default;
+$input-disabled-background-color: 	#EBEBEB 	!default;
+
+@mixin field {
+	padding: 13px 15px 15px;
+	border: 1px solid $input-border-color;
+	border-radius: 0;
+	background: $input-background-color;
+	-webkit-font-smoothing: initial;
+
+	font: inherit;
+	color: inherit;
+
+	&:focus,
+	&:active {
+		outline: 0;
+		box-shadow: none;
+		border-color: rgba(0,0,0,0.3);
+	}
+}
+
+@mixin input {
+	@include field;
+
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+@mixin textarea {
+	@include field;
+
+	width: 100%;
+
+	max-width: 100%;
+	resize: vertical;
+}
+
+@mixin select {
+	@include field;
+	padding-right: 50px;
+
+	width: 100%;
+
+	-webkit-appearance: none;
+}
+
+@mixin label {
+	margin: 0;
+	@include spacing(padding-bottom, .25rem);
+}
+
+@mixin checkbox {
+	border: 1px solid $input-border-color;
+	border-radius: 0;
+
+	width: 21px !important;
+	height: 21px !important;
+	margin-right: 14px;
+	margin-bottom: 12px;
+
+	background-color: $input-background-color;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+@include placeholder() {
+	opacity: .7;
+}
+
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+	@include input;
+}
+
+input.disabled,
+input[disabled="disabled"],
+input[disabled] {
+	background: $input-disabled-background-color;
+}
+
+input[type="checkbox"] {
+	@include checkbox;
+
+	&:checked {
+		border-color: $input-focus-border-color;
+		background: $input-background-color url('assets/images/checkbox.svg') center center no-repeat;
+		background-size: 100% 100%;
+		outline: 0;
+	}
+}
+
+input[type="radio"] {
+	@include checkbox;
+	border-radius: 50%;
+
+	&:checked {
+		border: 7px solid $input-focus-border-color;
+		outline: 0;
+	}
+}
+
+input[type="submit"],
+input[type="button"],
+button[type="submit"],
+button[type="button"],
+button[type="reset"] {
+	@include btn;
+}
+
+input[type="file"] {
+	width: 100%;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+	//display: block;
+	//margin-bottom: 0 !important;
+	//padding: 12px 28px;
+	//border: 0 solid transparent;
+	//border-right-width: 1em;
+	//background-clip: padding-box;
+	//overflow: visible;
+    //
+	//font-family: $font-family-body-alt;
+	//font-weight: 600;
+	//text-align: center;
+    //
+	//transition: all $transition--micro ease-in-out;
+    //
+	//vertical-align: middle;
+    //
+	//color: $color-white;
+	//cursor: pointer;
+	//background-color: $btn-background;
+    //
+	//&:focus, &:active {
+	//	outline: 0;
+	//	box-shadow: none;
+	//	background-color: $color-dark;
+	//}
+    //
+	//&:hover {
+	//	background-color: $color-dark;
+	//}
+}
+
+textarea {
+	@include textarea;
+}
+
+select {
+	@include select;
+
+	&[multiple] {
+		background: none;
+		padding-right: 13px;
+	}
+}
+
+fieldset {
+	border: 0;
+
+	legend {
+		@include fontsize(12px);
+		padding: 0 !important;
+
+		color: inherit;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	> div {
+		@include spacing(margin-top, .5rem);
+	}
+}
+
+// =====================================================================================================================
+
+div.wpforms-container-full .wpforms-form {
+
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="password"],
+	input[type="range"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"] {
+		@include input;
+	}
+
+	input[type=submit],
+	button[type=submit],
+	.wpforms-page-button {
+		@include btn;
+	}
+
+	input.wpforms-field-medium,
+	select.wpforms-field-medium,
+	.wpforms-field-row.wpforms-field-medium {
+		max-width: none;
+	}
+}

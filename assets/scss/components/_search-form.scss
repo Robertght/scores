@@ -1,0 +1,7 @@
+.search-form {
+	display: flex;
+
+	> .search-submit {
+		flex-shrink: 0;
+	}
+}

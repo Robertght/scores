@@ -1,0 +1,104 @@
+$baseline-unit: 					16px						!default;
+
+$body-font-size:             		17px            			!default;
+$body-line-height:           		1.5             			!default;
+$body-font-family:          		"Roboto", sans-serif       	!default;
+$body-text-color:					#000000						!default;
+
+$text-selection-color: 				#FFFFFF						!default;
+$text-selection-background-color: 	#000000						!default;
+
+// just set the desired baseline unit here
+// so we can use rem units to multiply it
+html {
+	font-size: percentage($baseline-unit/16px);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: $body-font-family;
+	@include fontsize($body-font-size);
+
+	color: $body-text-color;
+	line-height: $body-line-height;
+}
+
+@mixin p {
+	@include baseline($body-line-height, 0.68);
+
+	&:not(:last-child) {
+		@include spacing(padding-bottom, 2rem);
+	}
+
+	a img {
+		margin-top: 0; // ??
+	}
+}
+
+em,
+i,
+small {
+	font-style: italic;
+}
+
+@mixin render-typography-styles() {
+	.h0         { @include h0 }
+	h1          { @include h1 }
+	h2          { @include h2 }
+	h3          { @include h3 }
+	h4          { @include h4 }
+	h5          { @include h5 }
+	h6          { @include h6 }
+
+	p           { @include p }
+
+	blockquote  { @include blockquote }
+	cite  		{ @include cite }
+	pre         { @include pre }
+	table       { @include table }
+
+	dl          { @include dl }
+	ul          { @include ul }
+	ol          { @include ol }
+
+	pre {
+		@include spacing(padding, 1rem);
+		@include spacing(margin-bottom, 2rem);
+
+		border: 1px solid currentColor;
+	}
+
+	hr,
+	address,
+	.two-column,
+	.mejs-container {
+		@include spacing(margin-bottom, 2rem);
+	}
+
+	@include above(small) {
+		.two-column {
+			@include spacing(column-gap, 2rem);
+			column-count: 2;
+		}
+	}
+}
+
+#{$content-class} {
+	@include render-typography-styles();
+
+	& > *:first-child:not(.gallery) {
+		margin-top: 0;
+	}
+}
+
+// Overriding The Default Text Selection Color
+::selection {
+	background: $text-selection-background-color;
+	color: $text-selection-color;
+}
+
+::-moz-selection {
+	background: $text-selection-background-color;
+	color: $text-selection-color;
+}

@@ -1,0 +1,48 @@
+$blockquote-font-family: "Roboto", sans-serif !default;
+$blockquote-font-size: 30px !default;
+$blockquote-font-weight: 300 !default;
+$blockquote-line-height: 1.5 !default;
+$blockquote-text-transform: none !default;
+
+@mixin blockquote {
+	font-family: $blockquote-font-family;
+	@include fontsize($blockquote-font-size);
+	font-weight: $blockquote-font-weight;
+	line-height: $blockquote-line-height;
+	text-transform: $blockquote-text-transform;
+
+	&:not(:last-child) { @include spacing(margin-bottom, 3rem); }
+	&:not(:first-child) { @include spacing(margin-top, 2rem); }
+
+	p {
+		font: inherit;
+		text-transform: inherit;
+	}
+}
+
+@mixin cite {
+	display: block;
+
+	font-size: initial;
+	font-style: normal;
+
+	@include spacing(margin-top, 1rem);
+
+	&:before {
+		content: "";
+		@include cite-dash;
+	}
+}
+
+@mixin cite-dash {
+	position: relative;
+	top: -6px;
+	left: 0;
+
+	display: inline-block;
+	width: 60px;
+	height: 1px;
+	margin-right: 20px;
+
+	background-color: currentColor;
+}

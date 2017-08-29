@@ -1,0 +1,51 @@
+/* Bold Normal */
+@font-face {
+    font-family: 'Woodford Bourne';
+    src: url('woodfordbourne-bold-webfont.eot');
+    src: url('woodfordbourne-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('woodfordbourne-bold-webfont.woff2') format('woff2'),
+         url('woodfordbourne-bold-webfont.woff') format('woff'),
+         url('woodfordbourne-bold-webfont.ttf') format('truetype'),
+         url('woodfordbourne-bold-webfont.svg#woodford_bournebold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: 'Woodford Bourne';
+    src: url('woodfordbourne-bolditalic-webfont.eot');
+    src: url('woodfordbourne-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('woodfordbourne-bolditalic-webfont.woff2') format('woff2'),
+         url('woodfordbourne-bolditalic-webfont.woff') format('woff'),
+         url('woodfordbourne-bolditalic-webfont.ttf') format('truetype'),
+         url('woodfordbourne-bolditalic-webfont.svg#woodford_bournebold_italic') format('svg');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Thin Normal */
+@font-face {
+    font-family: 'Woodford Bourne';
+    src: url('woodfordbourne-thin-webfont.eot');
+    src: url('woodfordbourne-thin-webfont.eot?#iefix') format('embedded-opentype'),
+    url('woodfordbourne-thin-webfont.woff2') format('woff2'),
+    url('woodfordbourne-thin-webfont.woff') format('woff'),
+    url('woodfordbourne-thin-webfont.ttf') format('truetype'),
+    url('woodfordbourne-thin-webfont.svg#woodford_bournebold') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Thin Italic */
+@font-face {
+    font-family: 'Woodford Bourne';
+    src: url('woodfordbourne-thinitalic-webfont.eot');
+    src: url('woodfordbourne-thinitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('woodfordbourne-thinitalic-webfont.woff2') format('woff2'),
+    url('woodfordbourne-thinitalic-webfont.woff') format('woff'),
+    url('woodfordbourne-thinitalic-webfont.ttf') format('truetype'),
+    url('woodfordbourne-thinitalic-webfont.svg#woodford_bournebold_italic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}

@@ -1,0 +1,10 @@
+.dropcap {
+	float: left;
+	padding-right: 0.1em;
+	margin-top: 0.01em;
+	margin-bottom: -0.1em;
+
+	@include fontsize(83px);
+	font-weight: 700;
+	line-height: 0.9;
+}

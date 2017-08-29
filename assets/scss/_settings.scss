@@ -1,0 +1,167 @@
+
+// Typography settings
+$body-font-size:   		      				17px;
+$body-line-height:   	    				1.5;
+$body-font-family:          				"Roboto", sans-serif;
+$body-text-color:							#000000;
+
+$text-selection-color: 						#FFFFFF;
+$text-selection-background-color: 			#000000;
+
+// Blockquotes
+
+$blockquote-font-family: 					"Roboto", sans-serif;
+$blockquote-font-size: 						30px;
+$blockquote-font-weight: 					300;
+$blockquote-line-height: 					1.5;
+$blockquote-text-transform: 				none;
+
+// Typography content class
+$content-class:         					'.entry-content, .c-hero__content, .comment-content';
+
+
+
+// Baseline
+$baseline-unit: 							12px;
+
+
+// Colors
+$color-text:								#3B3B3B;
+$color-background:							#F5FBFE;
+$color-accent:								#DFA671;
+
+
+
+// Main Content Settings
+$container-width: 							1300px;
+$container-sides-spacing: 					70px;
+
+$content-width: 							720px;
+$content-vertical-spacing: 					60px;
+
+$content-border-width: 						0;
+$content-border-color: 						transparent;
+
+$content-background-color: 					$color-background;
+
+
+
+// Header
+$logo-height: 								23px;
+$header-height: 							100px;
+$header-links-spacing: 						40px;
+$header-sides-spacing: 						50px;
+
+$header-font-family: 						"Roboto", sans-serif;
+$header-font-weight: 						normal;
+$header-font-size: 							15px;
+$header-line-height: 						1.33;
+$header-letter-spacing: 					initial;
+$header-text-transform: 					none;
+
+$header-background-color: 					$color-background;
+$header-links-color: 						$color-text;
+$header-links-active-color: 				$color-accent;
+
+
+
+
+// Footer
+$footer-top-spacing: 						9rem;
+$footer-bottom-spacing: 					8rem;
+
+$footer-background-color: 					$color-background;
+$footer-text-color: 						#000000;
+$footer-links-color: 						$color-text;
+
+
+
+// Blog grid
+$blog-grid-width: 							1300px;
+$blog-sides-spacing: 						70px;
+
+$blog-grid-layout: 							regular;
+$blog-grid-columns: 						4;
+$blog-grid-vertical-spacing: 				150px;
+$blog-grid-horizontal-spacing: 				40px;
+$blog-items-aspect-ratio: 					3/4;
+
+$blog-title-color: 							#252525;
+$blog-primary-meta-color: 					#3B3B3B;
+$blog-secondary-meta-color: 				#828282;
+$blog-thumbnail-background: 				#EEEEEE;
+
+$blog-thumbnail-background-opacity: 		0.5;
+$blog-content-position:						below;
+$blog-content-alignment:					top left;
+
+$blog-title-visibility:						true;
+$blog-excerpt-visibility:					true;
+
+
+
+// Portfolio grid
+$portfolio-grid-width:	 					1300px;
+$portfolio-sides-spacing:	 				70px;
+
+$portfolio-grid-layout:	 					packed;
+$portfolio-grid-columns:	 				4;
+$portfolio-grid-vertical-spacing:	 		150px;
+$portfolio-grid-horizontal-spacing:	 		40px;
+$portfolio-items-aspect-ratio:	 			4/3;
+
+$portfolio-title-color:	 					#252525;
+$portfolio-primary-meta-color:	 			#3B3B3B;
+$portfolio-secondary-meta-color:	 		#828282;
+$portfolio-thumbnail-background:	 		#EEEEEE;
+
+$portfolio-thumbnail-background-opacity:	0.5;
+$portfolio-content-position:				below;
+$portfolio-content-alignment:				top left;
+
+$portfolio-title-visibility:				true;
+$portfolio-excerpt-visibility:				true;
+
+
+
+
+// Buttons
+$btn-background:        					#000000;
+$btn-color:             					#FFFFFF;
+
+
+// Mobile first means we need min-width media queries
+$breakpoints: (
+    xsmall:         20em,
+    small:          35em,
+    lap:            50em,
+    desk:           80em
+);
+
+
+
+// https://css-tricks.com/handling-z-index/
+$zindex: (
+    modal:          9000,
+    dropdown:       8000,
+    header:         7000,
+    overlay:        6000,
+    footer:         5000
+);
+
+
+
+// Miscellaneous
+$transition--micro: 						.15s;
+$transition--macro: 						.3s;
+$transition--easing: 						ease-out;
+
+$transition--default: 						all $transition--macro $transition--easing;
+
+
+
+
+
+// Debug settings
+$debug: 									true;
+$baseline-debug: 							$debug;

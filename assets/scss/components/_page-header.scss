@@ -1,0 +1,21 @@
+.c-page-header {
+	text-align: center;
+	@include spacing(padding-top, 3rem);
+	@include spacing(padding-bottom, 3rem);
+
+	.entry-title {
+		padding: 0;
+	}
+
+	select {
+		width: auto;
+		background: url('assets/images/select-arrow.svg') 100% center no-repeat;
+		background-size: 8px 11px;
+		padding: 0 16px 0 8px;
+		border: none;
+	}
+
+	.entry-title + * {
+		@include spacing(margin-top, 3rem);
+	}
+}
