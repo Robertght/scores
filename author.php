@@ -10,9 +10,15 @@ $curauth = wp_get_current_user();
 		<?php echo get_avatar( $curauth->user_email, '90 ' ); ?>
 	</div>
 	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
-	<div class="user-xp">
+	<div class="user-level">
 		Level <?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
 	</div>
+    <div class="user-xp">
+        <div class="user-xp-label">XP 150 / 1000</div>
+        <div class="user-xp-progress">
+            <div class="user-xp-progress-bar" style="width: 80%"></div>
+        </div>
+    </div>
 	<div class="user-badges">
 		<div class="row-title badges-title">Badges</div>
 		<?php
@@ -30,6 +36,7 @@ $curauth = wp_get_current_user();
 				</a></li>
 				<?php } ?>
 		</ul>
+        <div class="row-title badges-title">Ultimele Meciuri</div>
 	</div>
 </div>
 

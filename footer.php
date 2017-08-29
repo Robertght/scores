@@ -16,7 +16,7 @@
     <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
     <li><a href="#"><i class="fa fa-list-ol"></i>Leaderboard</a></li>
     <li><a href="#"><i class="fa fa-star"></i>Challenges</a></li>
-    <li><a href="#"><i class="fa fa-trophy"></i>Badges</a></li>
+    <li><a href="<?php echo get_post_type_archive_link( 'badges' ); ?>"><i class="fa fa-trophy"></i>Badges</a></li>
     <li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
 </ul>
 

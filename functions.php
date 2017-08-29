@@ -66,6 +66,7 @@ function badges_register_post_type() {
 				'view_item'     => __( 'View badge' ),
 			),
 			'public'      => true,
+            'has_archive' => true,
 			'description' => 'Badges for players',
 			'menu_icon'   => 'dashicons-tickets-alt',
 			'supports'    => array( 'title', 'editor', 'thumbnail' ),
