@@ -52,7 +52,7 @@ function matched_register_post_type() {
 			'has_archive' => true,
 			'menu_icon'   => 'dashicons-groups',
 			'description' => 'This is where everything begins',
-			'supports'    => array('title'),
+			'supports'    => array( 'title' ),
 		)
 	);
 }
@@ -158,7 +158,7 @@ function create_book_tax() {
 		'sport',
 		'matches',
 		array(
-			'labels' => array(
+			'labels'       => array(
 				'name'                       => _x( 'Sport', 'taxonomy general name', 'textdomain' ),
 				'singular_name'              => _x( 'Sport', 'taxonomy singular name', 'textdomain' ),
 				'search_items'               => __( 'Search Sport', 'textdomain' ),
@@ -176,28 +176,27 @@ function create_book_tax() {
 				'not_found'                  => __( 'No sports found.', 'textdomain' ),
 				'menu_name'                  => __( 'Sports', 'textdomain' ),
 			),
-			'rewrite' => array( 'slug' => 'sport' ),
+			'rewrite'      => array( 'slug' => 'sport' ),
 			'hierarchical' => false,
 		)
 	);
 }
 
 function add_theme_scripts() {
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
-    wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
-//    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/build/transformed.js' );
+	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
-
-	wp_enqueue_script('localized-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ));
-	wp_localize_script('localized-script', 'localized_script', array(
+	wp_enqueue_script( 'localized-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ) );
+	wp_localize_script( 'localized-script', 'localized_script', array(
 			'users' => get_users(),
 		)
 	);
 }
+
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
-function experience_calculator ( $score1, $score2 ) {
-	$response = array(50, 50); // because each user played the match, we start from 50 xp
+function calculate_experience( $score1, $score2 ) {
+	$response    = array( 50, 50 ); // because each user played the match, we start from 50 xp
 	$response[0] += $score1 * 30;
 	$response[1] += $score2 * 30;
 	if ( $score1 > $score2 ) {
@@ -209,7 +208,18 @@ function experience_calculator ( $score1, $score2 ) {
 	return $response;
 }
 
-function check_badges ( $score, $badges_array ) {
+function check_badges( $userID, $score, $win_status, $sportType ) {
+	//$user_meta = get_user_meta( $userID );
 
-	return ;
+	// level + badges: streak, fifa_wins, tennis_wins, wins_overall
+	// fifa_wins
+
+	$fifa_meta = get_user_meta( $userID, 'fifa_matches');
+	if ( $fifa_meta ) {
+		update_user_meta( $userID, 'fifa_matches', 1);
+	} else {
+		var_dump('caca');
+	}
+	die;
+	return;
 }
