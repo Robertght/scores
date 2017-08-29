@@ -1215,55 +1215,52 @@ body, html {
 /**
  * 4.0 - Components
  */
-.author-profile-card {
-  padding: 10px; }
-  .author-profile-card .user-photo,
-  .author-profile-card .user-name {
-    text-align: center; }
-  .author-profile-card .user-photo > img {
-    width: 200px; }
-  .author-profile-card .user-name {
-    padding-top: 20px; }
+.author-profile-card .user-photo,
+.author-profile-card .user-name, .single-badge .badge_title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3B3B3B;
+  margin-top: 20px; }
 
-.user-badges .badges-title {
-  text-transform: uppercase;
-  margin-top: 50px; }
+.author-profile-card .user-photo > img, .single-badge .badge_thumbnail > img {
+  width: 200px; }
 
-.user-badges ul {
-  width: 100%;
-  display: block;
-  white-space: nowrap;
-  overflow: auto;
-  margin-top: 10px; }
-
-.user-badges ul > li {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  border: 2px solid #bbbbbb;
-  border-radius: 15%;
-  overflow: hidden;
-  margin: 0 2px; }
-  .user-badges ul > li:nth-child(1) {
-    margin-right: 0; }
-
-.single-badge {
+.author-profile-card, .single-badge {
   text-align: center;
   padding: 10px; }
-  .single-badge .badge_thumbnail > img {
-    border: 5px solid #868585;
+
+.row-title {
+  text-transform: uppercase;
+  margin-top: 20px; }
+
+.user-badges {
+  text-align: right; }
+  .user-badges ul {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: auto;
+    margin-top: 10px; }
+  .user-badges ul > li {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #868585;
     border-radius: 15%;
-    width: 200px; }
-  .single-badge .badge_title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #3B3B3B;
-    margin-top: 20px; }
-  .single-badge .badge_content {
-    font-size: 18px;
-    font-weight: bold;
-    color: #868585;
-    padding: 15px 20px; }
+    overflow: hidden;
+    margin: 0 2px; }
+    .user-badges ul > li:nth-child(1) {
+      margin-right: 0; }
+
+.single-badge .badge_thumbnail > img {
+  border: 5px solid #868585;
+  border-radius: 15%; }
+
+.single-badge .badge_content {
+  font-size: 18px;
+  font-weight: bold;
+  color: #868585;
+  padding: 15px 20px; }
 
 .c-progress {
   position: relative;

@@ -1,20 +1,16 @@
 .single-badge {
-    text-align: center;
-    padding: 10px;
+    @extend %wrapper-content;
 
     .badge_thumbnail {
 
         > img {
+            @extend %img-size;
             border: 5px solid $color-light-grey;
             border-radius: 15%;
-            width: 200px;
         }
     }
     .badge_title {
-        font-size: 22px;
-        font-weight: bold;
-        color: $color-text;
-        margin-top: 20px;
+        @extend %head-title;
     }
     .badge_content {
         font-size: 18px;

@@ -1,23 +1,38 @@
-.author-profile-card {
+%head-title {
+	font-size: 22px;
+	font-weight: bold;
+	color: $color-text;
+	margin-top: 20px;
+}
+
+%img-size {
+	width: 200px;
+}
+
+%wrapper-content {
+	text-align: center;
 	padding: 10px;
+}
+
+.row-title {
+	text-transform: uppercase;
+	margin-top: 20px;
+}
+
+.author-profile-card {
+	@extend %wrapper-content;
 
 	.user-photo,
 	.user-name {
-		text-align: center;
+		@extend %head-title;
 	}
 	.user-photo > img {
-		width: 200px;
-	}
-	.user-name {
-		padding-top: 20px;
+		@extend %img-size;
 	}
 }
 
 .user-badges {
-	.badges-title {
-		text-transform: uppercase;
-		margin-top: 50px;
-	}
+	text-align: left;
 
 	ul {
 		width: 100%;
@@ -31,7 +46,7 @@
 		display: inline-block;
 		width: 60px;
 		height: 60px;
-		border: 2px solid #bbbbbb;
+		border: 2px solid $color-light-grey;
 		border-radius: 15%;
 		overflow: hidden;
 		margin: 0 2px;

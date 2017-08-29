@@ -14,7 +14,7 @@ $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name
 		<?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
 	</div>
 	<div class="user-badges">
-		<div class="badges-title">Badges</div>
+		<div class="row-title badges-title">Badges</div>
 		<?php
 		$args        = array(
 			'post_type' => 'badges',
