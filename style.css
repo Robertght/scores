@@ -1277,7 +1277,6 @@ body, html {
   margin-top: 20px; }
 
 .single-badge .badge_thumbnail > img {
-  border: 5px solid #979797;
   border-radius: 15%; }
 
 .single-badge .badge_content {
