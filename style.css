@@ -1050,12 +1050,12 @@ body, html {
 
 #header {
   position: fixed;
-  background-color: #FFFFFF;
   top: 0;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #3B3B3B;
-  padding: 10px 10px 0 10px; }
+  padding: 10px;
+  background: #222222;
+  color: #EEEEEE; }
 
 .site-title,
 .site-title > * {
@@ -1225,7 +1225,7 @@ body, html {
 .site-title > *, .author-profile-card .user-name, .single-badge .badge_title {
   font-size: 30px;
   font-weight: bold;
-  color: #3B3B3B;
+  color: #EEEEEE;
   margin-top: 20px; }
 
 .author-profile-card .user-xp, .single-badge .badge_owned {
@@ -1254,12 +1254,11 @@ body, html {
       display: inline-block;
       width: 60px;
       height: 60px;
-      border: 2px solid #979797;
-      border-radius: 15%;
-      overflow: hidden;
-      margin: 0 2px; }
+      overflow: hidden; }
       .user-badges > ul > li:nth-child(1) {
         margin-left: 0; }
+  .user-badges a, .user-badges img {
+    display: block; }
 
 .author-profile-card .badges-title {
   text-transform: uppercase;
@@ -1347,5 +1346,9 @@ body, html {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto; }
+
+body {
+  background: #2A2A2A;
+  color: #EEEEEE; }
 
 /*# sourceMappingURL=style.css.map */

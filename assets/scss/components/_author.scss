@@ -36,16 +36,17 @@
 			display: inline-block;
 			width: 60px;
 			height: 60px;
-			border: 2px solid $color-light-grey;
-			border-radius: 15%;
 			overflow: hidden;
-			margin: 0 2px;
 
 			&:nth-child(1) {
 				margin-left: 0;
 			}
 		}
 	}
+
+    a, img {
+        display: block;
+    }
 }
 
 %row-title {
