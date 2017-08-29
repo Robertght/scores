@@ -31,10 +31,12 @@ $curauth = wp_get_current_user();
 		?>
 		<ul><?php
 			foreach ( $posts_array as $badge ) { ?>
-				<li><a href="<?php echo get_permalink( $badge->ID ); ?>">
-					<?php echo get_the_post_thumbnail( $badge->ID ); ?>
-				</a></li>
-				<?php } ?>
+				<li>
+                    <a href="<?php echo get_permalink( $badge->ID ); ?>">
+				    	<?php echo get_the_post_thumbnail( $badge->ID ); ?>
+				    </a>
+                </li>
+            <?php } ?>
 		</ul>
         <div class="row-title badges-title">Ultimele Meciuri</div>
 	</div>

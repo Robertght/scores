@@ -1045,8 +1045,7 @@ body, html {
 
 #page {
   width: 100%;
-  width: 100vw;
-  padding: 15px 0; }
+  padding: 54px 0 64px; }
 
 #header {
   position: fixed;
@@ -1381,5 +1380,85 @@ body, html {
 body {
   background: #2A2A2A;
   color: #EEEEEE; }
+
+html, body, #page {
+  height: 100%; }
+
+.add-match {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.add-match-home,
+.add-match-away {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.add-match-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: auto; }
+
+.add-match-player {
+  color: white;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  margin-top: auto; }
+
+.add-match-score {
+  background: transparent;
+  color: white;
+  border: 0;
+  font-size: 48px; }
+
+.add-match-increase {
+  background: green;
+  color: white; }
+
+.add-match-decrease {
+  background: red;
+  color: white; }
+
+.add-match-confirm button,
+.add-match-controls button {
+  display: block;
+  border: 0;
+  width: 100%;
+  padding: 20px; }
+
+.badge-list {
+  padding: 20px; }
+  .badge-list > li + li {
+    margin-top: 10px; }
+  .badge-list > li > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: inherit;
+    text-decoration: none; }
+  .badge-list h1 {
+    font-size: 18px; }
+  .badge-list img {
+    width: 20%;
+    height: auto;
+    margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */
