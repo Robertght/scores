@@ -9,7 +9,7 @@ $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name
 	<div class="user-photo">
 		<?php echo get_avatar( $curauth->user_email, '90 ' ); ?>
 	</div>
-	<h2>About: <?php echo $curauth->nickname; ?></h2>
+	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
 	<div class="user-xp">
 		<?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
 	</div>

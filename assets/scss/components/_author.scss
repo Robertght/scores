@@ -73,3 +73,49 @@
 [class*="grav-clone"] {
 	display: none !important;
 }
+
+
+.author-profile-card {
+	padding: 10px;
+
+	.user-photo,
+	.user-name {
+		text-align: center;
+	}
+
+	.user-photo > img {
+		width: 200px;
+	}
+	.user-name {
+		padding-top: 20px;
+	}
+}
+
+.user-badges {
+	.badges-title {
+		text-transform: uppercase;
+		margin-top: 20px;
+	}
+
+	ul {
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		overflow: auto;
+		margin-top: 10px;
+	}
+
+	ul > li {
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border: 2px solid #bbbbbb;
+		border-radius: 15%;
+		overflow: hidden;
+		margin: 0 2px;
+
+		&:nth-child(1) {
+			margin-left: 0;
+		}
+	}
+}

@@ -3280,6 +3280,38 @@ body, html {
 [class*="grav-clone"] {
   display: none !important; }
 
+.author-profile-card {
+  padding: 10px; }
+  .author-profile-card .user-photo,
+  .author-profile-card .user-name {
+    text-align: center; }
+  .author-profile-card .user-photo > img {
+    width: 200px; }
+  .author-profile-card .user-name {
+    padding-top: 20px; }
+
+.user-badges .badges-title {
+  text-transform: uppercase;
+  margin-top: 20px; }
+
+.user-badges ul {
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: auto;
+  margin-top: 10px; }
+
+.user-badges ul > li {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #bbbbbb;
+  border-radius: 15%;
+  overflow: hidden;
+  margin: 0 2px; }
+  .user-badges ul > li:nth-child(1) {
+    margin-right: 0; }
+
 .c-border {
   position: fixed;
   top: 0;
