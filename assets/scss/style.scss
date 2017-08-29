@@ -49,23 +49,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "generic/normalize";
 @import "generic/reset";
 
-/**
- * 2.0 - Base Styles
- */
 @import "tools/typeline";
-
-@import "components/btn";
-@import "base/forms";
-
-@import "base/blockquote";
-@import "base/lists";
-@import "base/links";
-@import "base/pre";
-@import "base/table";
-@import "base/titles";
-@import "base/typography";
-
-@import "base/wp-align";
 
 /**
  * 3.0 - Abstractions
@@ -79,28 +63,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  * 4.0 - Components
  */
 @import "components/author";
-@import "components/border";
-@import "components/card";
-@import "components/dropcap";
-@import "components/footer";
-@import "components/meta";
+@import "components/badge";
 @import "components/progress";
-@import "components/widget";
-
-@import "components/comments";
-@import "components/comments-form";
-@import "components/comments-trigger";
-
-@import "components/page-header";
-@import "components/post-navigation";
-@import "components/search-form";
-
-@import "components/gallery";
-
-//@import "../../components/header/scss/main";
-//@import "../../components/hero/scss/main";
-//@import "../../components/footer/scss/main";
-//@import "../../components/multipage/scss/main";
+@import "components/footer";
 
 /**
  * 5.0 - Utility Classes
@@ -110,14 +75,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 //@import "utility/widths";
 @import "utility/wrap-text";
 
-/**
- * 6.0 - Hacks and Overrides
- */
-@import "customify/content";
-@import "customify/header";
-@import "customify/footer";
-@import "customify/blog";
-@import "customify/portfolio";
 
-@import "transitions";
+//@import "transitions";
 @import "shame";

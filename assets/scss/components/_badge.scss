@@ -1,0 +1,25 @@
+.single-badge {
+    text-align: center;
+    padding: 10px;
+
+    .badge_thumbnail {
+
+        > img {
+            border: 5px solid $color-light-grey;
+            border-radius: 15%;
+            width: 200px;
+        }
+    }
+    .badge_title {
+        font-size: 22px;
+        font-weight: bold;
+        color: $color-text;
+        margin-top: 20px;
+    }
+    .badge_content {
+        font-size: 18px;
+        font-weight: bold;
+        color: $color-light-grey;
+        padding: 15px 20px;
+    }
+}
