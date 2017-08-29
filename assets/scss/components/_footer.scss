@@ -1,9 +1,32 @@
-.site-footer {
-    background-color: $color-background;
+.footer-nav {
     position: fixed;
-    bottom:0;
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    border-top: 2px solid $color-text;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: stretch;
+
+    font-size: 11px;
+    text-align: center;
+    background: #222;
+    color: white;
+
+    > * {
+        flex: 1 1 0;
+        padding: 10px;
+    }
+
+    .fa {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+
+        text-decoration: none;
+        color: inherit;
+    }
 }

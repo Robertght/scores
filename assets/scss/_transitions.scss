@@ -1,8 +1,0 @@
-.site-content {
-	transition: $transition--default;
-	transition-property: opacity;
-
-	.fade-out & {
-		opacity: 0;
-	}
-}

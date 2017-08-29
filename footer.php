@@ -12,9 +12,13 @@
  */
 ?>
 
-<footer id="colophon" class="site-footer" role="contentinfo">
-
-</footer><!-- .site-footer -->
+<ul class="footer-nav">
+    <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+    <li><a href="#"><i class="fa fa-list-ol"></i>Leaderboard</a></li>
+    <li><a href="#"><i class="fa fa-star"></i>Challenges</a></li>
+    <li><a href="#"><i class="fa fa-trophy"></i>Badges</a></li>
+    <li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+</ul>
 
 </body>
 </html>

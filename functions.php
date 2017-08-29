@@ -175,9 +175,11 @@ function create_book_tax() {
 
 function add_theme_scripts() {
     wp_enqueue_style( 'style', get_stylesheet_uri() );
-    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/build/transformed.js' );
+    wp_enqueue_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+//    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/build/transformed.js' );
 
-	wp_enqueue_script('localized-script', get_template_directory_uri() . '/assets/js/main.js');
+
+	wp_enqueue_script('localized-script', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ));
 	wp_localize_script('localized-script', 'localized_script', array(
 			'users' => get_users(),
 		)
