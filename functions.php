@@ -22,7 +22,7 @@ function extra_user_profile_fields( $user ) { ?>
 			<td>
 				<input type="text" name="badges" id="badges"
 				       value="<?php echo esc_attr( get_the_author_meta( 'badges', $user->ID ) ); ?>"
-				       class="regular-text" /><br/>
+				       class="regular-text"/><br/>
 				<span class="description"><?php _e( "These are all the badges the user has." ); ?></span>
 			</td>
 		</tr>
@@ -46,13 +46,13 @@ function matched_register_post_type() {
 			'labels'      => array(
 				'name'          => __( 'Matches' ),
 				'singular_name' => __( 'Match' ),
-				'view_item'     => __( 'View user page' ),
+				'view_item'     => __( 'View match page' ),
 			),
 			'public'      => true,
 			'has_archive' => true,
 			'menu_icon'   => 'dashicons-groups',
 			'description' => 'This is where everything begins',
-			'supports'    => array( 'title' ),
+			'supports'    => array('title'),
 		)
 	);
 }
@@ -68,29 +68,31 @@ function badges_register_post_type() {
 			'public'      => true,
 			'description' => 'Badges for players',
 			'menu_icon'   => 'dashicons-tickets-alt',
-			'supports' => array( 'title', 'editor', 'thumbnail' ),
+			'supports'    => array( 'title', 'editor', 'thumbnail' ),
 		) );
 }
-add_theme_support('post-thumbnails');
+
+add_theme_support( 'post-thumbnails' );
 
 add_action( 'init', 'matched_register_post_type' );
 add_action( 'init', 'badges_register_post_type' );
 
 add_action( 'cmb2_admin_init', 'cmb2_sample_metaboxes' );
+
 /**
  * Define the metabox and field configurations.
  */
 function cmb2_sample_metaboxes() {
 
 	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_yourprefix_';
+	$prefix = '_scores_';
 
 	/**
 	 * Initiate the metabox
 	 */
 	$cmb = new_cmb2_box( array(
-		'id'           => 'test_metabox',
-		'title'        => __( 'Test Metabox', 'cmb2' ),
+		'id'           => 'players',
+		'title'        => __( 'Game options', 'cmb2' ),
 		'object_types' => array( 'matches', ), // Post type
 		'context'      => 'normal',
 		'priority'     => 'high',
@@ -99,38 +101,84 @@ function cmb2_sample_metaboxes() {
 		// 'closed'     => true, // Keep the metabox closed by default
 	) );
 
-	// Regular text field
+	// Status of the match
 	$cmb->add_field( array(
-		'name'       => __( 'Test Text', 'cmb2' ),
-		'desc'       => __( 'field description (optional)', 'cmb2' ),
-		'id'         => $prefix . 'text',
-		'type'       => 'text',
-		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
-		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
-		// 'on_front'        => false, // Optionally designate a field to wp-admin only
-		// 'repeatable'      => true,
+		'name'             => 'Status',
+		'desc'             => 'Select an option',
+		'id'               => $prefix . 'match_status',
+		'type'             => 'select',
+		'show_option_none' => false,
+		'default'          => 'pending',
+		'options'          => array(
+			'pending' => __( 'Pending', 'cmb2' ),
+			'active'  => __( 'Active', 'cmb2' ),
+			'done'    => __( 'Done', 'cmb2' ),
+			'cancel'  => __( 'Cancel', 'cmb2' )
+		),
 	) );
 
-	// URL text field
+	// Opponent user
 	$cmb->add_field( array(
-		'name' => __( 'Website URL', 'cmb2' ),
-		'desc' => __( 'field description (optional)', 'cmb2' ),
-		'id'   => $prefix . 'url',
-		'type' => 'text_url',
-		// 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-		// 'repeatable' => true,
+		'name' => 'Opponent Name',
+		'id'   => $prefix . 'opponent_user',
+		'desc' => 'Type the name of the opponent and select him.',
+		'type' => 'user_select_text',
 	) );
 
-	// Email text field
+	// First player score
 	$cmb->add_field( array(
-		'name' => __( 'Test Text Email', 'cmb2' ),
-		'desc' => __( 'field description (optional)', 'cmb2' ),
-		'id'   => $prefix . 'email',
-		'type' => 'text_email',
-		// 'repeatable' => true,
+		'name' => __( 'Player 1 score', 'cmb2' ),
+		'desc' => __( 'Score of the first player', 'cmb2' ),
+		'id'   => $prefix . 'first_player_score',
+		'type' => 'text_small',
 	) );
 
-	// Add other metaboxes as needed
-
+	// First player score
+	$cmb->add_field( array(
+		'name' => __( 'Player 2 score', 'cmb2' ),
+		'desc' => __( 'Score of the second player', 'cmb2' ),
+		'id'   => $prefix . 'second_player_score',
+		'type' => 'text_small',
+	) );
 }
+
+add_action( 'init', 'create_book_tax' );
+
+function create_book_tax() {
+	register_taxonomy(
+		'sport',
+		'matches',
+		array(
+			'labels' => array(
+				'name'                       => _x( 'Sport', 'taxonomy general name', 'textdomain' ),
+				'singular_name'              => _x( 'Sport', 'taxonomy singular name', 'textdomain' ),
+				'search_items'               => __( 'Search Sport', 'textdomain' ),
+				'popular_items'              => __( 'Popular Sports', 'textdomain' ),
+				'all_items'                  => __( 'All Sports', 'textdomain' ),
+				'parent_item'                => null,
+				'parent_item_colon'          => null,
+				'edit_item'                  => __( 'Edit Sport', 'textdomain' ),
+				'update_item'                => __( 'Update Sport', 'textdomain' ),
+				'add_new_item'               => __( 'Add New Sport', 'textdomain' ),
+				'new_item_name'              => __( 'New Sport Name', 'textdomain' ),
+				'separate_items_with_commas' => __( 'Separate sports with commas', 'textdomain' ),
+				'add_or_remove_items'        => __( 'Add or remove sports', 'textdomain' ),
+				'choose_from_most_used'      => __( 'Choose from the most used sports', 'textdomain' ),
+				'not_found'                  => __( 'No sports found.', 'textdomain' ),
+				'menu_name'                  => __( 'Sports', 'textdomain' ),
+			),
+			'rewrite' => array( 'slug' => 'sport' ),
+			'hierarchical' => false,
+		)
+	);
+}
+
+function load_localized_script() {
+	wp_enqueue_script('localized-script', get_template_directory_uri() . '/assets/js/main.js');
+	wp_localize_script('localized-script', 'localized_script', array(
+			'users' => get_users(),
+		)
+	);
+}
+
+add_action('admin_enqueue_scripts', 'load_localized_script');
