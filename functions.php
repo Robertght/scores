@@ -194,3 +194,21 @@ function add_theme_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
+
+function experience_calculator ( $score1, $score2 ) {
+	$response = array(50, 50); // because each user played the match, we start from 50 xp
+	$response[0] += $score1 * 30;
+	$response[1] += $score2 * 30;
+	if ( $score1 > $score2 ) {
+		$response[0] += 250;
+	} else {
+		$response[1] += 250;
+	}
+
+	return $response;
+}
+
+function check_badges ( $score, $badges_array ) {
+
+	return ;
+}

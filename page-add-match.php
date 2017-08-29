@@ -53,6 +53,7 @@
 <?php
 
 if ( isset( $_POST['submitted'] ) ) {
+	experience_calculator($_POST['firstUserScore'], $_POST['secondUserScore']);
 	$post_information = array(
 		'post_title'  => get_user_by( 'ID', $_POST['firstUserName'] )->data->display_name . ' vs ' . get_user_by( 'ID', $_POST['secondUserName'] )->data->display_name,
 		'meta_input'  => array(
@@ -65,5 +66,11 @@ if ( isset( $_POST['submitted'] ) ) {
 		'post_status' => 'publish'
 	);
 
+	// get actual score for both players
+	$first_user_score = get_user_meta ( $_POST['firstUserName'], 'experience' , true );
+	$second_user_score = get_user_meta ( $_POST['secondUserName'], 'experience' , true );
+	$match_points = experience_calculator($_POST['firstUserScore'], $_POST['secondUserScore']);
+	var_dump( $first_user_score + $match_points[0], $second_user_score + $match_points[1]);
+	die;
 	wp_insert_post( $post_information );
 }

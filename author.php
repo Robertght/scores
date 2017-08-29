@@ -18,7 +18,8 @@ $curauth = wp_get_current_user();
 		<?php
 		$args        = array(
 			'post_type' => 'badges',
-			'post__in'  => get_user_meta( get_current_user_id(), 'badges', false ),
+			'include'  => explode ( ',', get_user_meta( get_current_user_id(), 'badges', false )[0]),
+			'order' => 'ASC',
 		);
 		$posts_array = get_posts( $args );
 		?>
