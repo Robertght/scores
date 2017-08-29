@@ -30,4 +30,3 @@
             <div class="description"><?php bloginfo('description'); ?></div>
         </div>
     </div>
-    <hr />

@@ -3002,7 +3002,8 @@ body, html {
   background-color: #FFFFFF;
   top: 0;
   width: 100%;
-  height: 50px; }
+  height: 50px;
+  border-bottom: 2px solid #3B3B3B; }
 
 .o-layout {
   display: -webkit-box;
@@ -3292,7 +3293,7 @@ body, html {
 
 .user-badges .badges-title {
   text-transform: uppercase;
-  margin-top: 20px; }
+  margin-top: 50px; }
 
 .user-badges ul {
   width: 100%;
@@ -3441,7 +3442,9 @@ body, html {
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  height: 50px;
+  border-top: 2px solid #3B3B3B; }
 
 .c-meta {
   margin-right: -0.5rem; }
