@@ -117,11 +117,19 @@ function cmb2_sample_metaboxes() {
 		),
 	) );
 
-	// Opponent user
+	// First player
 	$cmb->add_field( array(
-		'name' => 'Opponent ID',
-		'id'   => $prefix . 'opponent_user_ID',
-		'desc' => 'The ID of your opponent',
+		'name' => 'First player ID',
+		'id'   => $prefix . 'first_player_ID',
+		'desc' => 'The ID of the first player',
+		'type' => 'text_small',
+	) );
+
+	// Second player
+	$cmb->add_field( array(
+		'name' => 'Second player ID',
+		'id'   => $prefix . 'second_player_ID',
+		'desc' => 'The ID of the second player',
 		'type' => 'text_small',
 	) );
 

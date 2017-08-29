@@ -3,23 +3,30 @@
  * Template Name: Add Match Page
  */
 ?>
-<?php
-var_dump( get_users( array(
-		'exclude ' => 1,
-	)
-) );?>
+
 	<form action="" id="primaryPostForm" method="POST">
 
 		<fieldset>
-			<label for="opponentUser"><?php _e( 'Opponent:', 'scores' ) ?></label>
-			<select name="opponentUser" id="opponentUser">
+			<label for="firstUserName"><?php _e( 'First player:', 'scores' ) ?></label>
+			<select name="firstUserName" id="firstUserName">
 				<?php
-				$opponent_users = get_users( array(
-						'exclude ' => array(
-								1,
-						),
-					)
+				$opponent_users = get_users();
+				foreach ( $opponent_users as $user ) { ?>
+					<option value="<?php echo $user->ID; ?>" <?php if ( $user->ID == get_current_user_id() ) : echo 'selected="selected"'; endif; ?>><?php echo $user->data->display_name; ?></option>
+				<?php } ?>
+			</select>
+		</fieldset>
+
+		<fieldset>
+			<label for="secondUserName"><?php _e( 'Second player:', 'scores' ) ?></label>
+			<select name="secondUserName" id="secondUserName">
+				<?php
+				$args = array(
+					'exclude' => array(
+						get_current_user_id()
+					),
 				);
+				$opponent_users = get_users( $args );
 				foreach ( $opponent_users as $user ) { ?>
 					<option value="<?php echo $user->ID; ?>"><?php echo $user->data->display_name; ?></option>
 				<?php } ?>
@@ -47,9 +54,10 @@ var_dump( get_users( array(
 
 if ( isset( $_POST['submitted'] ) ) {
 	$post_information = array(
-		'post_title'  => get_user_by( 'ID', get_current_user_id() )->data->display_name . ' vs ' . get_user_by( 'ID', $_POST['opponentUser'] )->data->display_name,
+		'post_title'  => get_user_by( 'ID', $_POST['firstUserName'] )->data->display_name . ' vs ' . get_user_by( 'ID', $_POST['secondUserName'] )->data->display_name,
 		'meta_input'  => array(
-			'_scores_opponent_user_ID'    => $_POST['opponentUser'],
+			'_scores_first_player_ID'    => $_POST['firstUserName'],
+			'_scores_second_player_ID'    => $_POST['secondUserName'],
 			'_scores_first_player_score'  => $_POST['firstUserScore'],
 			'_scores_second_player_score' => $_POST['secondUserScore'],
 		),
