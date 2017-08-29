@@ -24,5 +24,7 @@
 <div id="page">
 
     <div id="header" role="banner">
-            <h1 class="site-title"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
+        <a href="#"><i class="fa fa-chevron-left"></i></a>
+        <h1 class="site-title"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
+        <a href="#"><i class="fa fa-futbol-o"></i></a>
     </div>
