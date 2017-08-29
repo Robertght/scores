@@ -1,14 +1,22 @@
-node_modules
-bower_components
+assets/.sass-cache
+assets/css/*.map
+assets/css/**/*.map
+assets/inc/metaboxes/.sass-cache
+inc/vendor/twitter-api/cache.tweetcache
 
 .DS_Store
+.test.path
+nbproject
 .sass-cache
-.svn
 .idea
 *.sublime-project
 *.sublime-workspace
+codekit-config.json
 
-*.map
-
-gulpconfig.json
+node_modules
+build
+*-ck.js
+*.css.map
+*.js.map
+npm-debug.log
 package-lock.json
