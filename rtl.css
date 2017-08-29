@@ -1251,9 +1251,19 @@ body, html {
   text-align: center;
   padding: 10px; }
   .single-badge .badge_thumbnail > img {
-    border: 5px solid #3B3B3B;
+    border: 5px solid #868585;
     border-radius: 15%;
     width: 200px; }
+  .single-badge .badge_title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #3B3B3B;
+    margin-top: 20px; }
+  .single-badge .badge_content {
+    font-size: 18px;
+    font-weight: bold;
+    color: #868585;
+    padding: 15px 20px; }
 
 .c-progress {
   position: relative;
