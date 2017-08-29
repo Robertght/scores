@@ -13,9 +13,6 @@
  * @since Boilerplate 1.0
  */
 
-//let the template parts know about our location
-$location = pixelgrade_set_location( 'index' );
-
 get_header(); ?>
 
 <?php
@@ -35,7 +32,7 @@ do_action( 'pixelgrade_before_main_content', $location );
 
 					if ( have_posts() ) : /* Start the Loop */ ?>
 
-						<div id="posts-container" <?php boilerplate_blog_class( '', $location ); ?>>
+						<div id="posts-container">
 							<?php /* Start the Loop */ ?>
 							<?php while ( have_posts() ) : the_post(); ?>
 								<?php
