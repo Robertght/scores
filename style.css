@@ -1039,7 +1039,6 @@ img[height] {
 
 body, html {
   width: 100%;
-  width: 100vw;
   height: 100%;
   padding: 0;
   margin: 0; }
@@ -1047,16 +1046,35 @@ body, html {
 #page {
   width: 100%;
   width: 100vw;
-  padding: 50px 0; }
+  padding: 15px 0; }
 
 #header {
   position: fixed;
-  background-color: #FFFFFF;
   top: 0;
-  width: 100%;
-  height: 50px;
-  border-bottom: 2px solid #3B3B3B;
-  padding: 10px 10px 0 10px; }
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: #222222;
+  color: #EEEEEE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  #header a {
+    font-size: 24px;
+    color: inherit; }
+
+.site-title,
+.site-title > * {
+  text-align: center;
+  margin-top: 0 !important;
+  text-decoration: none;
+  text-transform: uppercase; }
 
 .o-layout {
   display: -webkit-box;
@@ -1215,16 +1233,16 @@ body, html {
 /**
  * 4.0 - Components
  */
-.author-profile-card .user-photo,
-.author-profile-card .user-name, .single-badge .badge_title {
+.site-title,
+.site-title > *, .author-profile-card .user-name, .single-badge .badge_title {
   font-size: 30px;
   font-weight: bold;
-  color: #3B3B3B;
+  color: #EEEEEE;
   margin-top: 20px; }
 
 .author-profile-card .user-xp, .single-badge .badge_owned {
   font-size: 20px;
-  color: #ffc600;
+  color: #F5A623;
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 5px; }
@@ -1236,37 +1254,35 @@ body, html {
   text-align: center;
   padding: 20px; }
 
-.row-title {
-  text-transform: uppercase;
-  margin-top: 20px; }
-
 .user-badges {
   text-align: left; }
-  .user-badges ul {
+  .user-badges > ul {
     width: 100%;
     display: block;
     white-space: nowrap;
     overflow: auto;
     margin-top: 10px; }
-  .user-badges ul > li {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #868585;
-    border-radius: 15%;
-    overflow: hidden;
-    margin: 0 2px; }
-    .user-badges ul > li:nth-child(1) {
-      margin-left: 0; }
+    .user-badges > ul > li {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      overflow: hidden; }
+      .user-badges > ul > li:nth-child(1) {
+        margin-left: 0; }
+  .user-badges a, .user-badges img {
+    display: block; }
+
+.author-profile-card .badges-title {
+  text-transform: uppercase;
+  margin-top: 20px; }
 
 .single-badge .badge_thumbnail > img {
-  border: 5px solid #868585;
   border-radius: 15%; }
 
 .single-badge .badge_content {
   font-size: 18px;
   font-weight: bold;
-  color: #868585;
+  color: #979797;
   padding: 15px 20px; }
 
 .c-progress {
@@ -1341,5 +1357,9 @@ body, html {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto; }
+
+body {
+  background: #2A2A2A;
+  color: #EEEEEE; }
 
 /*# sourceMappingURL=style.css.map */
