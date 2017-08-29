@@ -5,7 +5,6 @@
 
         > img {
             @extend %img-size;
-            border: 5px solid $color-light-grey;
             border-radius: 15%;
         }
     }
