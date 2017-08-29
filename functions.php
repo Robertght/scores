@@ -134,3 +134,9 @@ function cmb2_sample_metaboxes() {
 	// Add other metaboxes as needed
 
 }
+
+function add_theme_scripts() {
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/build/transformed.js' );
+}
+add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
