@@ -173,12 +173,14 @@ function create_book_tax() {
 	);
 }
 
-function load_localized_script() {
+function add_theme_scripts() {
+    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/build/transformed.js' );
+
 	wp_enqueue_script('localized-script', get_template_directory_uri() . '/assets/js/main.js');
 	wp_localize_script('localized-script', 'localized_script', array(
 			'users' => get_users(),
 		)
 	);
 }
-
-add_action('admin_enqueue_scripts', 'load_localized_script');
+add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
