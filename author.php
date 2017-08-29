@@ -11,7 +11,7 @@ $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name
 	</div>
 	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
 	<div class="user-xp">
-		<?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
+		Level <?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
 	</div>
 	<div class="user-badges">
 		<div class="row-title badges-title">Badges</div>

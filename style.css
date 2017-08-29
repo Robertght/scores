@@ -1217,17 +1217,24 @@ body, html {
  */
 .author-profile-card .user-photo,
 .author-profile-card .user-name, .single-badge .badge_title {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
   color: #3B3B3B;
   margin-top: 20px; }
+
+.author-profile-card .user-xp, .single-badge .badge_owned {
+  font-size: 20px;
+  color: #ffc600;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5px; }
 
 .author-profile-card .user-photo > img, .single-badge .badge_thumbnail > img {
   width: 200px; }
 
 .author-profile-card, .single-badge {
   text-align: center;
-  padding: 10px; }
+  padding: 20px; }
 
 .row-title {
   text-transform: uppercase;

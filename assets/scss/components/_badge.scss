@@ -12,6 +12,10 @@
     .badge_title {
         @extend %head-title;
     }
+    .badge_owned {
+        @extend %sub-title;
+    }
+
     .badge_content {
         font-size: 18px;
         font-weight: bold;

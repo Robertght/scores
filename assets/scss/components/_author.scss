@@ -1,8 +1,16 @@
 %head-title {
-	font-size: 22px;
+	font-size: 30px;
 	font-weight: bold;
 	color: $color-text;
 	margin-top: 20px;
+}
+
+%sub-title {
+	font-size: 20px;
+	color: $color-golden;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 5px;
 }
 
 %img-size {
@@ -11,13 +19,14 @@
 
 %wrapper-content {
 	text-align: center;
-	padding: 10px;
+	padding: 20px;
 }
 
 .row-title {
 	text-transform: uppercase;
 	margin-top: 20px;
 }
+
 
 .author-profile-card {
 	@extend %wrapper-content;
@@ -29,6 +38,10 @@
 	.user-photo > img {
 		@extend %img-size;
 	}
+	.user-xp {
+		@extend %sub-title;
+	}
+
 }
 
 .user-badges {
