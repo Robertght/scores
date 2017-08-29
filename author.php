@@ -1,6 +1,6 @@
 <?php
 // Set the Current Author Variable $curauth
-$curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) );
+$curauth = wp_get_current_user();
 ?>
 
 <?php get_header(); ?>
@@ -21,14 +21,14 @@ $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name
 			'post__in'  => get_user_meta( get_current_user_id(), 'badges', false ),
 		);
 		$posts_array = get_posts( $args );
-		?><ul><?php
-			foreach ( $posts_array as $badge ) {
-			?><li><?php
-				echo get_the_post_thumbnail( $badge->ID );
-			?></li><?php
-			}
-		?></ul><?php
 		?>
+		<ul><?php
+			foreach ( $posts_array as $badge ) { ?>
+				<li><a href="<?php echo get_permalink( $badge->ID ); ?>">
+					<?php echo get_the_post_thumbnail( $badge->ID ); ?>
+				</a></li>
+				<?php } ?>
+		</ul>
 	</div>
 </div>
 
