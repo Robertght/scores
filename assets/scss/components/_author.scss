@@ -22,7 +22,33 @@
 	padding: 20px;
 }
 
-.row-title {
+%row-widget {
+	text-align: left;
+
+	> ul {
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		overflow: auto;
+		margin-top: 10px;
+
+		> li {
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			border: 2px solid $color-light-grey;
+			border-radius: 15%;
+			overflow: hidden;
+			margin: 0 2px;
+
+			&:nth-child(1) {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+%row-title {
 	text-transform: uppercase;
 	margin-top: 20px;
 }
@@ -41,31 +67,11 @@
 	.user-xp {
 		@extend %sub-title;
 	}
-
+	.badges-title {
+		@extend %row-title;
+	}
 }
 
 .user-badges {
-	text-align: left;
-
-	ul {
-		width: 100%;
-		display: block;
-		white-space: nowrap;
-		overflow: auto;
-		margin-top: 10px;
-	}
-
-	ul > li {
-		display: inline-block;
-		width: 60px;
-		height: 60px;
-		border: 2px solid $color-light-grey;
-		border-radius: 15%;
-		overflow: hidden;
-		margin: 0 2px;
-
-		&:nth-child(1) {
-			margin-left: 0;
-		}
-	}
+	@extend %row-widget;
 }
