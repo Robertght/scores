@@ -2994,7 +2994,15 @@ body, html {
 
 #page {
   width: 100%;
-  width: 100vw; }
+  width: 100vw;
+  padding: 50px 0; }
+
+#header {
+  position: fixed;
+  background-color: #FFFFFF;
+  top: 0;
+  width: 100%;
+  height: 50px; }
 
 .o-layout {
   display: -webkit-box;
@@ -3396,6 +3404,12 @@ body, html {
   @media only screen and (max-width: 320px) {
     .dropcap {
       font-size: 42px; } }
+
+.site-footer {
+  background-color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
 
 .c-meta {
   margin-right: -0.5rem; }
@@ -5251,7 +5265,7 @@ label.subscribe-label.subscribe-label {
       padding-bottom: 27px; } }
 
 .u-content-background {
-  background-color: #F5FBFE; }
+  background-color: #FFFFFF; }
 
 .u-content-width > :not([class*="align"]):not([class*="gallery"]):not(blockquote),
 .mce-content-body {
@@ -5410,7 +5424,7 @@ body {
   font-size: 23px; }
 
 .site-header {
-  background-color: #F5FBFE; }
+  background-color: #FFFFFF; }
 
 .c-navbar {
   height: 100px;
@@ -5511,7 +5525,7 @@ body {
   max-width: none; }
 
 .u-footer__background {
-  background-color: #F5FBFE; }
+  background-color: #FFFFFF; }
 
 .c-footer {
   padding-top: 9rem;

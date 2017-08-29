@@ -9,7 +9,17 @@ body, html {
 #page {
 	width: 100%; //fallback
 	width: 100vw;
+	padding: 50px 0;
 }
+
+#header {
+	position: fixed;
+	background-color: $color-background;
+	top: 0;
+	width: 100%;
+	height: 50px;
+}
+
 .o-layout {
 	display: flex;
 	justify-content: center;
