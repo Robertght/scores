@@ -119,10 +119,10 @@ function cmb2_sample_metaboxes() {
 
 	// Opponent user
 	$cmb->add_field( array(
-		'name' => 'Opponent Name',
-		'id'   => $prefix . 'opponent_user',
-		'desc' => 'Type the name of the opponent and select him.',
-		'type' => 'user_select_text',
+		'name' => 'Opponent ID',
+		'id'   => $prefix . 'opponent_user_ID',
+		'desc' => 'The ID of your opponent',
+		'type' => 'text_small',
 	) );
 
 	// First player score
