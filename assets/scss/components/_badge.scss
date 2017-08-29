@@ -1,0 +1,13 @@
+.single-badge {
+    text-align: center;
+    padding: 10px;
+
+    .badge_thumbnail {
+
+        > img {
+            border: 5px solid $color-text;
+            border-radius: 15%;
+            width: 200px;
+        }
+    }
+}

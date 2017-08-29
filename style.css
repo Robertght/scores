@@ -3003,7 +3003,8 @@ body, html {
   top: 0;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #3B3B3B; }
+  border-bottom: 2px solid #3B3B3B;
+  padding: 10px 10px 0 10px; }
 
 .o-layout {
   display: -webkit-box;
@@ -3313,6 +3314,14 @@ body, html {
   .user-badges ul > li:nth-child(1) {
     margin-left: 0; }
 
+.single-badge {
+  text-align: center;
+  padding: 10px; }
+  .single-badge .badge_thumbnail > img {
+    border: 5px solid #3B3B3B;
+    border-radius: 15%;
+    width: 200px; }
+
 .c-border {
   position: fixed;
   top: 0;
@@ -3444,6 +3453,7 @@ body, html {
   bottom: 0;
   width: 100%;
   height: 50px;
+  padding: 10px;
   border-top: 2px solid #3B3B3B; }
 
 .c-meta {
