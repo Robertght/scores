@@ -64,12 +64,36 @@
 	.user-photo > img {
 		@extend %img-size;
 	}
-	.user-xp {
+	.user-level {
 		@extend %sub-title;
 	}
 	.badges-title {
 		@extend %row-title;
 	}
+}
+
+.user-xp {
+    margin-top: 10px;
+}
+
+.user-xp-label {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.user-xp-progress {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: #555;
+}
+
+.user-xp-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #FFFFFF;
 }
 
 .user-badges {
