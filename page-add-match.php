@@ -34,6 +34,8 @@ get_header();
                             <option data-avatar="<?php echo get_avatar_src( get_avatar( $user->ID )); ?>" value="<?php echo $user->ID; ?>" <?php if ( $user->ID == get_current_user_id() ) : echo 'selected="selected"'; endif; ?>><?php echo $user->data->display_name; ?></option>
                         <?php } ?>
                     </select>
+                    <label for="firstUserScore" hidden><?php _e( 'First user score:', 'framework' ) ?></label>
+                    <input class="add-match-score" type="number" name="firstUserScore" id="firstUserScore" value="0"/>
                 </div>
             </div>
             <div class="add-match-controls">
