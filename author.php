@@ -54,7 +54,7 @@ $curauth = get_queried_object();
 		</ul>
     </div>
     <div class="matches">
-		<div class="row-title badges-title">Ultimele Meciuri</div>
+		<div class="row-title">Ultimele Meciuri</div>
 		<?php
 		$args           = array(
 			'post_type'   => 'matches',

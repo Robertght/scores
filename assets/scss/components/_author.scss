@@ -55,7 +55,8 @@
 }
 
 .row-title {
- @extend %row-title;
+	text-align:left;
+	@extend %row-title;
 }
 
 .author-profile-card {
@@ -143,4 +144,29 @@
 
 .row-widgets {
 	@extend %wrapper-content;
+}
+
+.matches {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex-wrap: wrap;
+
+	.lose {
+		color: red;
+	}
+
+	.win {
+		color: green;
+	}
+
+	ul {
+		margin-top: 10px;
+	}
+	 li {
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+	}
+
 }
