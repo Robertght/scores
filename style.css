@@ -1466,12 +1466,21 @@ body, html {
       .leaderbord > ul > li > a img {
         width: 90px;
         height: auto; }
+      .leaderbord > ul > li > a .row-group:last-child {
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
       .leaderbord > ul > li > a .row-group > * {
-        padding-right: 20px; }
-      .leaderbord > ul > li > a .row-group :last-child {
+        padding-right: 20px;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
+      .leaderbord > ul > li > a .row-group > :last-child {
         padding-right: 0; }
       .leaderbord > ul > li > a .row-score {
         padding-right: 20px; }
+
+.row-xp {
+  -ms-flex-preferred-size: 5em;
+      flex-basis: 5em; }
 
 .c-progress {
   position: relative;
