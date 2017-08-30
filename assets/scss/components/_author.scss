@@ -146,7 +146,8 @@
 	@extend %wrapper-content;
 }
 
-.matches {
+.matches,
+.home-matches {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
@@ -168,5 +169,8 @@
 		justify-content:space-between;
 		align-items: center;
 	}
+}
 
+.home-matches {
+	@extend %wrapper-content;
 }

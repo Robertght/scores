@@ -1256,7 +1256,7 @@ body, html {
 .single-badge .badge_thumbnail > img {
   width: 200px; }
 
-.row-widgets, .single-badge {
+.row-widgets, .home-matches, .single-badge {
   text-align: center;
   padding: 20px; }
 
@@ -1358,7 +1358,8 @@ body, html {
     height: 100%;
     background: #000000; }
 
-.matches {
+.matches,
+.home-matches {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1370,13 +1371,17 @@ body, html {
       flex-basis: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-  .matches .lose {
+  .matches .lose,
+  .home-matches .lose {
     color: red; }
-  .matches .win {
+  .matches .win,
+  .home-matches .win {
     color: green; }
-  .matches ul {
+  .matches ul,
+  .home-matches ul {
     margin-top: 10px; }
-  .matches li {
+  .matches li,
+  .home-matches li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
