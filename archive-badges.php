@@ -2,6 +2,7 @@
 get_header();
 $args = array(
 	'post_type' => 'badges',
+	'numberposts' => -1,
 );
 $posts_array = get_posts( $args );
 ?>

@@ -34,8 +34,6 @@ get_header();
                             <option data-avatar="<?php echo get_avatar_url( $user->ID ); ?>" value="<?php echo $user->ID; ?>" <?php if ( $user->ID == get_current_user_id() ) : echo 'selected="selected"'; endif; ?>><?php echo $user->data->display_name; ?></option>
                         <?php } ?>
                     </select>
-                    <label for="firstUserScore" hidden><?php _e( 'First user score:', 'framework' ) ?></label>
-                    <input class="add-match-score" type="number" name="firstUserScore" id="firstUserScore" value="0"/>
                 </div>
             </div>
             <div class="add-match-controls">
@@ -102,6 +100,12 @@ if ( isset( $_POST['submitted'] ) ) {
 	$second_user_score = get_user_meta ( $_POST['secondUserName'], 'experience' , true );
 
 	$match_points = calculate_experience($_POST['firstUserScore'], $_POST['secondUserScore']);
+	update_user_meta( $_POST['firstUserName'], 'experience', $match_points[0] );
+	update_user_meta( $_POST['secondUserName'], 'experience', $match_points[1] );
+
+	update_level( $_POST['firstUserName'] );
+	update_level( $_POST['secondUserName'] );
+
 	if ( $_POST['firstUserScore'] > $_POST['secondUserScore'] ) {
 		check_badges( $_POST['firstUserName'],  $_POST['firstUserScore'], 'win', $_POST['sportType']);
 		check_badges( $_POST['secondUserName'],  $_POST['secondUserScore'], 'lose', $_POST['sportType']);

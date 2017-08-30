@@ -13,7 +13,7 @@ function extra_user_profile_fields( $user ) { ?>
 			<td>
 				<input type="text" name="experience" id="experience"
 				       value="<?php echo esc_attr( get_the_author_meta( 'experience', $user->ID ) ); ?>"
-				       class="regular-text" readonly/><br/>
+				       class="regular-text"/><br/>
 				<span class="description"><?php _e( "This is all that you need to know." ); ?></span>
 			</td>
 		</tr>
@@ -37,6 +37,7 @@ function save_extra_user_profile_fields( $user_id ) {
 		return false;
 	}
 	update_user_meta( $user_id, 'experience', $_POST['experience'] );
+	update_level( $user_id );
 	update_user_meta( $user_id, 'badges', $_POST['badges'] );
 }
 
@@ -208,18 +209,199 @@ function calculate_experience( $score1, $score2 ) {
 	return $response;
 }
 
-function check_badges( $userID, $score, $win_status, $sportType ) {
-	//$user_meta = get_user_meta( $userID );
-
-	// level + badges: streak, fifa_wins, tennis_wins, wins_overall
-	// fifa_wins
-
-	$fifa_meta = get_user_meta( $userID, 'fifa_matches');
-	if ( $fifa_meta ) {
-		update_user_meta( $userID, 'fifa_matches', 1);
-	} else {
-		var_dump('caca');
+function calculate_level( $experience_value ) {
+	/*
+	 * 1 - 0
+	 * 2 - 1000
+	 * 3 - 3000
+	 * 4 - 6000
+	 * 5 - 10000
+	 * 6 - 15000
+	 * 7 - 21000
+	 */
+	$xp_levels = array(
+			0 => 0,
+			1 => 1000,
+			2 => 3000,
+			3 => 6000,
+			4 => 10000,
+			5 => 15000,
+			6 => 21000
+	);
+	foreach ($xp_levels as $key => $value ) {
+		if ( $experience_value[0] < $value ) {
+			return $key;
+		}
 	}
-	die;
-	return;
+}
+
+function update_level( $userID ) {
+	$user_experience = get_user_meta( $userID, 'experience');
+	$user_level = calculate_level( $user_experience );
+	update_user_meta( $userID, 'experience_level', $user_level );
+}
+
+function get_xp_for_level ( $level ) {
+	/*
+	 * 1 - 0
+	 * 2 - 1000
+	 * 3 - 3000
+	 * 4 - 6000
+	 * 5 - 10000
+	 * 6 - 15000
+	 * 7 - 21000
+	 */
+	$xp_levels = array(0, 1000, 3000, 6000, 10000, 15000, 21000);
+
+	foreach ($xp_levels as $key => $value ) {
+		if ( $level == $key ) {
+			return $value;
+		}
+	}
+}
+
+function progress_percentage_calculator ( $min, $max, $val ) {
+	$max = $max - $min;
+	$val = $val - $min;
+	return $val / $max * 100;
+}
+
+function add_badges ( $userID ) {
+	$badges_array = array(31, 33, 37, 39, 41, 43, 44, 45, 49, 51, 53, 55, 57, 59, 61, 63);
+
+	$overall_wins = get_user_meta( $userID, 'overall_wins');
+	$streak_wins = get_user_meta( $userID, 'streak_wins');
+	$fifa_matches = get_user_meta( $userID, 'fifa_matches');
+	$tenis_matches = get_user_meta( $userID, 'tenis_matches');
+	$badges_string = '';
+
+	switch ( $overall_wins[0] ) {
+		case '1':
+			$badges_string .= $badges_array[0];
+			$badges_string .= ',';
+			break;
+		case '5':
+			$badges_string .= $badges_array[1];
+			$badges_string .= ',';
+			break;
+		case '10':
+			$badges_string .= $badges_array[2];
+			$badges_string .= ',';
+			break;
+		case '50':
+			$badges_string .= $badges_array[3];
+			$badges_string .= ',';
+			break;
+	}
+
+	switch ( $streak_wins[0] ) {
+		case '3':
+			$badges_string .= $badges_array[4];
+			$badges_string .= ',';
+			break;
+		case '5':
+			$badges_string .= $badges_array[5];
+			$badges_string .= ',';
+			break;
+		case '10':
+			$badges_string .= $badges_array[6];
+			$badges_string .= ',';
+			break;
+		case '20':
+			$badges_string .= $badges_array[7];
+			$badges_string .= ',';
+			break;
+	}
+
+	switch ( $fifa_matches[0] ) {
+		case '1':
+			$badges_string .= $badges_array[8];
+			$badges_string .= ',';
+			break;
+		case '10':
+			$badges_string .= $badges_array[9];
+			$badges_string .= ',';
+			break;
+		case '25':
+			$badges_string .= $badges_array[10];
+			$badges_string .= ',';
+			break;
+		case '50':
+			$badges_string .= $badges_array[11];
+			$badges_string .= ',';
+			break;
+	}
+
+	switch ( $tenis_matches[0] ) {
+		case '3':
+			$badges_string .= $badges_array[12];
+			$badges_string .= ',';
+			break;
+		case '5':
+			$badges_string .= $badges_array[13];
+			$badges_string .= ',';
+			break;
+		case '10':
+			$badges_string .= $badges_array[14];
+			$badges_string .= ',';
+			break;
+		case '20':
+			$badges_string .= $badges_array[15];
+			$badges_string .= ',';
+			break;
+	}
+	update_user_meta( $userID, 'badges' , $badges_string);
+}
+
+function check_badges( $userID, $score, $win_status, $sportType ) {
+	// badges: streak_wins, overall_wins, fifa_matches, tennis_matches
+//update_user_meta( $userID, 'streak_wins', 0);
+//update_user_meta( $userID, 'overall_wins', 0);
+//update_user_meta( $userID, 'fifa_matches', 0);
+//update_user_meta( $userID, 'tenis_matches', 0);
+//die;
+	$streak_wins = get_user_meta( $userID, 'streak_wins' );
+	$overall_wins = get_user_meta( $userID, 'overall_wins' ) ;
+
+	if ( $win_status == 'win' ) {
+		if ( $streak_wins ) {
+			update_user_meta( $userID, 'streak_wins', $streak_wins[0] + 1);
+		} else {
+			update_user_meta( $userID, 'streak_wins', 1);
+		}
+		if ( $overall_wins ) {
+			update_user_meta( $userID, 'overall_wins', $overall_wins[0] + 1);
+		} else {
+			update_user_meta( $userID, 'overall_wins', 1);
+		}
+	} else if ( ( $win_status == 'deuce' ) || ( $win_status == 'lose') ) {
+		if ( $streak_wins ) {
+			update_user_meta( $userID, 'streak_wins', 0 );
+		}
+	}
+
+	switch ( $sportType ) {
+		case 'Fifa':
+			$fifa_meta = get_user_meta( $userID, 'fifa_matches');
+//			var_dump($fifa_meta);
+//			die;
+			if ( $fifa_meta ) {
+				update_user_meta( $userID, 'fifa_matches', $fifa_meta[0] + 1 );
+			} else {
+				update_user_meta( $userID, 'fifa_matches', 1 );
+			}
+			break;
+		case 'Tenis':
+			$tenis_meta = get_user_meta( $userID, 'tenis_matches');
+			if ( $tenis_meta ) {
+				update_user_meta( $userID, 'tenis_matches', ( $tenis_meta[0] + 1 ) );
+			} else {
+				update_user_meta( $userID, 'tenis_matches', 1 );
+				break;
+			}
+	}
+
+	add_badges( $userID );
+
+	//var_dump( get_user_meta( $userID, ) );
 }

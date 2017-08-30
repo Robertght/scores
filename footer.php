@@ -17,10 +17,10 @@ $curauth = wp_get_current_user();
 
 <ul class="footer-nav">
     <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
-    <li><a href="//scores.dev/?page_id=46"><i class="fa fa-list-ol"></i>Leaderboard</a></li>
+    <li><a href="<?php echo get_permalink( get_page_by_title( 'Leaderboard' ) )?>"><i class="fa fa-list-ol"></i>Leaderboard</a></li>
     <li><a href="#"><i class="fa fa-star"></i>Challenges</a></li>
     <li><a href="<?php echo get_post_type_archive_link( 'badges' ); ?>"><i class="fa fa-trophy"></i>Badges</a></li>
-    <li><a href="<?php echo get_author_posts_url($curauth->ID) ?>"><i class="fa fa-user"></i>Profile</a></li>
+    <li><a href="<?php echo get_author_posts_url(wp_get_current_user()->ID) ?>"><i class="fa fa-user"></i>Profile</a></li>
 </ul>
 
 </body>

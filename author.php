@@ -1,6 +1,7 @@
 <?php
 // Set the Current Author Variable $curauth
-$curauth = wp_get_current_user();
+//$curauth = wp_get_current_user();
+$curauth = get_queried_object();
 ?>
 
 <?php get_header(); ?>
@@ -11,34 +12,43 @@ $curauth = wp_get_current_user();
 	</div>
 	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
 	<div class="user-level">
-		Level <?php echo get_user_meta( get_current_user_id(), 'experience', true ); ?>
+		Level <?php echo get_user_meta( $curauth->ID, 'experience_level' )[0]; ?>
 	</div>
-    <div class="user-xp">
-        <div class="user-xp-label">XP 150 / 1000</div>
-        <div class="user-xp-progress">
-            <div class="user-xp-progress-bar" style="width: 80%"></div>
-        </div>
-    </div>
+	<div class="user-xp">
+		<div class="user-xp-label">XP <?php echo get_user_meta( $curauth->ID, 'experience' )[0]; ?>
+			/ <?php echo get_xp_for_level( get_user_meta( $curauth->ID, 'experience_level' )[0] ); ?>
+		</div>
+		<div class="user-xp-progress">
+			<div class="user-xp-progress-bar" style="width:
+			<?php
+			echo progress_percentage_calculator(
+				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] - 1 ),
+				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] ),
+				get_user_meta( $curauth->ID, 'experience' )[0]
+			);
+			?>%"></div>
+		</div>
+	</div>
 	<div class="user-badges">
 		<div class="row-title badges-title">Badges</div>
 		<?php
 		$args        = array(
 			'post_type' => 'badges',
-			'include'  => explode ( ',', get_user_meta( get_current_user_id(), 'badges', false )[0]),
-			'order' => 'ASC',
+			'include'   => explode( ',', get_user_meta( get_current_user_id(), 'badges', false )[0] ),
+			'order'     => 'ASC',
 		);
 		$posts_array = get_posts( $args );
 		?>
 		<ul><?php
 			foreach ( $posts_array as $badge ) { ?>
 				<li>
-                    <a href="<?php echo get_permalink( $badge->ID ); ?>">
-				    	<?php echo get_the_post_thumbnail( $badge->ID ); ?>
-				    </a>
-                </li>
-            <?php } ?>
+					<a href="<?php echo get_permalink( $badge->ID ); ?>">
+						<?php echo get_the_post_thumbnail( $badge->ID ); ?>
+					</a>
+				</li>
+			<?php } ?>
 		</ul>
-        <div class="row-title badges-title">Ultimele Meciuri</div>
+		<div class="row-title badges-title">Ultimele Meciuri</div>
 	</div>
 </div>
 
