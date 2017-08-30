@@ -1045,7 +1045,11 @@ body, html {
 
 #page {
   width: 100%;
-  margin: 54px 0 64px; }
+  margin: 54px 0; }
+  #page:after {
+    content: "";
+    display: block;
+    height: 64px; }
 
 #header {
   position: fixed;

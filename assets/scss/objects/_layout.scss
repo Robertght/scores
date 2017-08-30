@@ -7,7 +7,13 @@ body, html {
 
 #page {
 	width: 100%; //fallback
-	margin: 54px 0 64px;
+	margin: 54px 0;
+
+    &:after {
+        content: "";
+        display: block;
+        height: 64px;
+    }
 }
 
 #header {
