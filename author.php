@@ -1,6 +1,7 @@
 <?php
 // Set the Current Author Variable $curauth
-$curauth = wp_get_current_user();
+//$curauth = wp_get_current_user();
+$curauth = get_queried_object();
 ?>
 
 <?php get_header(); ?>
@@ -15,14 +16,14 @@ $curauth = wp_get_current_user();
 	</div>
 	<div class="user-xp">
 		<div class="user-xp-label">XP <?php echo get_user_meta( $curauth->ID, 'experience' )[0]; ?>
-			/ <?php echo get_xp_level( get_user_meta( $curauth->ID, 'experience_level' )[0] ); ?>
+			/ <?php echo get_xp_for_level( get_user_meta( $curauth->ID, 'experience_level' )[0] ); ?>
 		</div>
 		<div class="user-xp-progress">
 			<div class="user-xp-progress-bar" style="width:
 			<?php
 			echo progress_percentage_calculator(
-				get_xp_level( get_user_meta( $curauth->ID, 'experience_level' )[0] - 1 ),
-				get_xp_level( get_user_meta( $curauth->ID, 'experience_level' )[0] ),
+				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] - 1 ),
+				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] ),
 				get_user_meta( $curauth->ID, 'experience' )[0]
 			);
 			?>%"></div>

@@ -37,7 +37,7 @@ function save_extra_user_profile_fields( $user_id ) {
 		return false;
 	}
 	update_user_meta( $user_id, 'experience', $_POST['experience'] );
-	update_user_meta ( $user_id, 'experience_level', 2);
+	update_level( $user_id );
 	update_user_meta( $user_id, 'badges', $_POST['badges'] );
 }
 
@@ -219,11 +219,17 @@ function calculate_level( $experience_value ) {
 	 * 6 - 15000
 	 * 7 - 21000
 	 */
-	$xp_levels = array(0, 1000, 3000, 6000, 10000, 15000, 21000);
+	$xp_levels = array(
+			0 => 0,
+			1 => 1000,
+			2 => 3000,
+			3 => 6000,
+			4 => 10000,
+			5 => 15000,
+			6 => 21000
+	);
 	foreach ($xp_levels as $key => $value ) {
-		if ( $experience_value < $value ) {
-			var_dump($key);
-			die;
+		if ( $experience_value[0] < $value ) {
 			return $key;
 		}
 	}
@@ -231,11 +237,11 @@ function calculate_level( $experience_value ) {
 
 function update_level( $userID ) {
 	$user_experience = get_user_meta( $userID, 'experience');
-	$user_level = calculate_level ( $user_experience );
+	$user_level = calculate_level( $user_experience );
 	update_user_meta( $userID, 'experience_level', $user_level );
 }
 
-function get_xp_level ( $level ) {
+function get_xp_for_level ( $level ) {
 	/*
 	 * 1 - 0
 	 * 2 - 1000
@@ -247,7 +253,11 @@ function get_xp_level ( $level ) {
 	 */
 	$xp_levels = array(0, 1000, 3000, 6000, 10000, 15000, 21000);
 
-	return $xp_levels[$level];
+	foreach ($xp_levels as $key => $value ) {
+		if ( $level == $key ) {
+			return $value;
+		}
+	}
 }
 
 function progress_percentage_calculator ( $min, $max, $val ) {
