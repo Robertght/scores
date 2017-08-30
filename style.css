@@ -1395,6 +1395,9 @@ body, html {
 .single-badge .badge_thumbnail > img {
   border-radius: 15%; }
 
+.single-badge .badge_owned.not {
+  color: #555; }
+
 .single-badge .badge_content {
   font-size: 18px;
   font-weight: bold;
@@ -1622,7 +1625,8 @@ html, body, #page {
   padding: 1em;
   border: 0;
   border-radius: 0;
-  width: 100%; }
+  width: 100%;
+  -webkit-appearance: none; }
 
 .badge-list {
   padding: 20px; }

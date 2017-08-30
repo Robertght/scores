@@ -13,6 +13,10 @@
     }
     .badge_owned {
         @extend %sub-title;
+
+        &.not {
+            color: #555;
+        }
     }
 
     .badge_content {
