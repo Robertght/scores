@@ -7,7 +7,12 @@ body, html {
 
 #page {
 	width: 100%; //fallback
-	margin: 54px 0;
+
+    &:before {
+        content: "";
+        display: block;
+        height: 54px;
+    }
 
     &:after {
         content: "";

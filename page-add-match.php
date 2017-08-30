@@ -7,6 +7,21 @@ get_header();
 
     <form class="add-match" action="" id="primaryPostForm" method="POST">
 
+        <div class="add-match-sport">
+            <label for="sportType" hidden><?php _e('Sport type:', 'scores'); ?></label>
+            <select name="sportType" id="sportType">
+                <?php
+                $sports = get_terms( array(
+                                'taxonomy' => 'sport',
+                                'hide_empty' => false,
+                        )
+                );
+                foreach ( $sports as $sport ) { ?>
+                    <option value="<?php echo $sport->name; ?>"><?php echo $sport->name; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+
         <div class="add-match-team add-match-home">
             <div class="add-match-content">
                 <div class="add-match-avatar"></div>
@@ -54,21 +69,6 @@ get_header();
                 <button class="add-match-increase"><i class="fa fa-plus"></i></button>
                 <button class="add-match-decrease"><i class="fa fa-minus"></i></button>
             </div>
-        </div>
-
-        <div class="add-match-sport">
-            <label for="sportType" hidden><?php _e('Sport type:', 'scores'); ?></label>
-            <select name="sportType" id="sportType">
-                <?php
-                $sports = get_terms( array(
-                                'taxonomy' => 'sport',
-                                'hide_empty' => false,
-                        )
-                );
-                foreach ( $sports as $sport ) { ?>
-                    <option value="<?php echo $sport->name; ?>"><?php echo $sport->name; ?></option>
-                <?php } ?>
-            </select>
         </div>
 
         <div class="add-match-confirm">
