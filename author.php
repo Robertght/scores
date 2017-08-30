@@ -8,7 +8,7 @@ $curauth = get_queried_object();
 
 <div class="author-profile-card">
 	<div class="user-photo">
-		<?php echo get_avatar( $curauth->user_email, '120' ); ?>
+		<?php echo get_avatar( $curauth->user_email, '10' ); ?>
 	</div>
 	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
 	<div class="user-level">
