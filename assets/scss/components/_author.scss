@@ -144,6 +144,7 @@
 
 .row-widgets {
 	@extend %wrapper-content;
+    flex-shrink: 0;
 }
 
 .matches,

@@ -64,13 +64,18 @@ $curauth = get_queried_object();
 		$latest_matches = get_posts( $args );
 		?>
 		<ul><?php
-			foreach ( $latest_matches as $match ) { ?>
-				<li class="<?php if ( get_post_meta( $match->ID, '_scores_first_player_score', true ) > get_post_meta( $match->ID, '_scores_second_player_score', true ) ) { echo "won"; } else { echo "lose"; } ?>">
+			foreach ( $latest_matches as $match ) {
+                $homeplayer = get_userdata( get_post_meta( $match->ID, '_scores_first_player_ID', true ) );
+                $homename = $homeplayer->first_name;
+                $awayplayer = get_userdata( get_post_meta( $match->ID, '_scores_second_player_ID', true ) );
+                $awayname = $awayplayer->first_name;
+                ?>
+				<li class="<?php if ( get_post_meta( $match->ID, '_scores_first_player_score', true ) >= get_post_meta( $match->ID, '_scores_second_player_score', true ) ) { echo "won"; } else { echo "lose"; } ?>">
 					<div class="first_player_avatar"><?php echo get_avatar( get_post_meta( $match->ID, '_scores_first_player_ID', true ), 48 ); ?></div>
-					<div class="first_player_name"><?php echo get_userdata( get_post_meta( $match->ID, '_scores_first_player_ID', true ) )->display_name; ?></div>
+					<div class="first_player_name"><?php echo $homename; ?></div>
 					<div class="first_player_score"><?php echo get_post_meta( $match->ID, '_scores_first_player_score', true ); ?></div>
 					<div class="second_player_score"><?php echo get_post_meta( $match->ID, '_scores_second_player_score', true ); ?></div>
-					<div class="second_player_name"><?php echo get_userdata( get_post_meta( $match->ID, '_scores_second_player_ID', true ) )->display_name; ?></div>
+					<div class="second_player_name"><?php echo $awayname; ?></div>
 					<div class="second_player_avatar"><?php echo get_avatar( get_post_meta( $match->ID, '_scores_second_player_ID', true ), 48 ); ?></div>
 				</li>
 			<?php } ?>

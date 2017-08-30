@@ -3,8 +3,12 @@ body {
     color: #EEEEEE;
 }
 
-html, body, #page {
+html, body, .page-template-page-add-match #page {
     height: 100%;
+}
+
+body:not(.page-template-page-add-match) #page {
+    padding-bottom: 54px;
 }
 
 .add-match {

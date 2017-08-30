@@ -1358,6 +1358,10 @@ body, html {
     height: 100%;
     background: #000000; }
 
+.row-widgets {
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
+
 .matches,
 .home-matches {
   display: -webkit-box;
@@ -1558,8 +1562,11 @@ body {
   background: #2A2A2A;
   color: #EEEEEE; }
 
-html, body, #page {
+html, body, .page-template-page-add-match #page {
   height: 100%; }
+
+body:not(.page-template-page-add-match) #page {
+  padding-bottom: 54px; }
 
 .add-match {
   height: 100%;
