@@ -1,6 +1,5 @@
 <?php
 // Set the Current Author Variable $curauth
-//$curauth = wp_get_current_user();
 $curauth = get_queried_object();
 ?>
 
@@ -8,7 +7,7 @@ $curauth = get_queried_object();
 
 <div class="author-profile-card">
 	<div class="user-photo">
-		<?php echo get_avatar( $curauth->user_email, '140' ); ?>
+		<?php echo get_avatar( $curauth->ID, '140' ); ?>
 	</div>
 	<h2 class="user-name"> <?php echo $curauth->nickname; ?></h2>
 	<div class="user-level">
