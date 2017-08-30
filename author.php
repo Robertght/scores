@@ -22,13 +22,17 @@ $curauth = get_queried_object();
 			<div class="user-xp-progress-bar" style="width:
 			<?php
 			echo progress_percentage_calculator(
-				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] - 1 ),
-				get_xp_for_level ( get_user_meta( $curauth->ID, 'experience_level' )[0] ),
+				get_xp_for_level( get_user_meta( $curauth->ID, 'experience_level' )[0] - 1 ),
+				get_xp_for_level( get_user_meta( $curauth->ID, 'experience_level' )[0] ),
 				get_user_meta( $curauth->ID, 'experience' )[0]
 			);
 			?>%"></div>
 		</div>
 	</div>
+
+</div>
+
+<div class="row-widgets">
 	<div class="user-badges">
 		<div class="row-title badges-title">Badges</div>
 		<?php
@@ -49,6 +53,27 @@ $curauth = get_queried_object();
 			<?php } ?>
 		</ul>
 		<div class="row-title badges-title">Ultimele Meciuri</div>
+		<?php
+		$args           = array(
+			'post_type'   => 'matches',
+			'meta_key'    => '_scores_first_player_ID',
+			'meta_value'  => $curauth->ID,
+			'numberposts' => 5,
+		);
+		$latest_matches = get_posts( $args );
+		?>
+		<ul><?php
+			foreach ( $latest_matches as $match ) { ?>
+				<li class="<?php if ( get_post_meta( $match->ID, '_scores_first_player_score', true ) > get_post_meta( $match->ID, '_scores_second_player_score', true ) ) { echo "won"; } else { echo "lose"; } ?>">
+					<div class="first_player_avatar"><?php echo get_avatar( get_post_meta( $match->ID, '_scores_first_player_ID', true ), 48 ); ?></div>
+					<div class="first_player_name"><?php echo get_userdata( get_post_meta( $match->ID, '_scores_first_player_ID', true ) )->display_name; ?></div>
+					<div class="first_player_score"><?php echo get_post_meta( $match->ID, '_scores_first_player_score', true ); ?></div>
+					<div class="second_player_score"><?php echo get_post_meta( $match->ID, '_scores_second_player_score', true ); ?></div>
+					<div class="second_player_name"><?php echo get_userdata( get_post_meta( $match->ID, '_scores_second_player_ID', true ) )->display_name; ?></div>
+					<div class="second_player_avatar"><?php echo get_avatar( get_post_meta( $match->ID, '_scores_second_player_ID', true ), 48 ); ?></div>
+				</li>
+			<?php } ?>
+		</ul>
 	</div>
 </div>
 

@@ -1256,7 +1256,7 @@ body, html {
 .author-profile-card .user-photo > img, .single-badge .badge_thumbnail > img {
   width: 200px; }
 
-.author-profile-card, .single-badge {
+.author-profile-card, .row-widgets, .single-badge {
   text-align: center;
   padding: 20px; }
 
@@ -1278,29 +1278,69 @@ body, html {
   .user-badges a, .user-badges img {
     display: block; }
 
-.row-title, .author-profile-card .badges-title {
+.row-title, .badges-title {
   text-transform: uppercase;
   margin-top: 20px; }
 
-.user-xp {
-  margin-top: 10px; }
-
-.user-xp-label {
-  text-align: right;
-  margin-bottom: 5px; }
-
-.user-xp-progress {
-  position: relative;
-  width: 100%;
-  height: 5px;
-  background: #555; }
-
-.user-xp-progress-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: #FFFFFF; }
+.author-profile-card {
+  background: url("assets/images/card_background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-height: 380px;
+  max-width: 390px;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .author-profile-card > * {
+    color: #000000 !important; }
+  .author-profile-card .user-name {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    text-transform: uppercase;
+    margin-top: -11px; }
+  .author-profile-card .user-photo {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1; }
+    .author-profile-card .user-photo > img {
+      padding: 10px; }
+  .author-profile-card .user-level {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+    margin-top: 35px; }
+  .author-profile-card .user-xp {
+    margin-top: 10px;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    width: 70%; }
+  .author-profile-card .user-xp-label {
+    text-align: right;
+    margin-bottom: 5px; }
+  .author-profile-card .user-xp-progress {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: #555; }
+  .author-profile-card .user-xp-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #FFFFFF; }
 
 .single-badge .badge_thumbnail > img {
   border-radius: 15%; }
