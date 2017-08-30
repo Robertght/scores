@@ -168,6 +168,29 @@
 		display: flex;
 		justify-content:space-between;
 		align-items: center;
+
+		margin: 5px 0;
+
+
+		 &:nth-child(odd) {
+			 background: #222;
+		 }
+		 .first_player_avatar,
+		 .second_player_avatar {
+			 width: 10%;
+		 }
+		 .first_player_name,
+		 .second_player_name {
+			 width: 30%;
+		 }
+
+		 .first_player_name{
+			 text-align: left;
+		 }
+		 .second_player_name{
+			 text-align: right;
+		 }
+
 	}
 }
 

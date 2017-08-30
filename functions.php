@@ -402,6 +402,10 @@ function check_badges( $userID, $score, $win_status, $sportType ) {
 	}
 
 	add_badges( $userID );
+}
 
-	//var_dump( get_user_meta( $userID, ) );
+function get_avatar_src ( $avatar_img ) {
+	$array = array();
+	preg_match( '/src="([^"]*)"/i', $avatar_img, $array ) ;
+	return $array[1];
 }
