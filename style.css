@@ -1688,4 +1688,7 @@ html, body, #page {
 .home .js-back {
   display: none; }
 
+html[lang] {
+  margin-top: 0 !important; }
+
 /*# sourceMappingURL=style.css.map */
