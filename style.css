@@ -1390,7 +1390,27 @@ body, html {
             justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    margin: 5px 0; }
+    .matches li:nth-child(odd),
+    .home-matches li:nth-child(odd) {
+      background: #222; }
+    .matches li .first_player_avatar,
+    .matches li .second_player_avatar,
+    .home-matches li .first_player_avatar,
+    .home-matches li .second_player_avatar {
+      width: 10%; }
+    .matches li .first_player_name,
+    .matches li .second_player_name,
+    .home-matches li .first_player_name,
+    .home-matches li .second_player_name {
+      width: 30%; }
+    .matches li .first_player_name,
+    .home-matches li .first_player_name {
+      text-align: left; }
+    .matches li .second_player_name,
+    .home-matches li .second_player_name {
+      text-align: right; }
 
 .single-badge .badge_thumbnail > img {
   border-radius: 15%; }
