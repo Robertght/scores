@@ -1328,7 +1328,7 @@ body, html {
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
-      padding-top: 10px;
+      padding-top: 15px;
       color: #ffffff;
       text-transform: capitalize;
       text-decoration: none;
