@@ -26,5 +26,5 @@
     <div id="header" role="banner">
         <a class="js-back" href="#"><i class="fa fa-chevron-left"></i></a>
         <h1 class="site-title"><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
-        <a href="<?php echo get_permalink( get_page_by_title( 'Add match' ) )?>"><i class="fa fa-futbol-o"></i></a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'add-match' ) )?>"><i class="fa fa-futbol-o"></i></a>
     </div>
