@@ -37,7 +37,7 @@ $curauth = get_queried_object();
 		<?php
 		$args        = array(
 			'post_type' => 'badges',
-			'include'   => explode( ',', get_user_meta( get_current_user_id(), 'badges', false )[0] ),
+			'include'   => explode( ',', get_user_meta( $curauth->ID, 'badges', false )[0] ),
 			'order'     => 'ASC',
 		);
 		$posts_array = get_posts( $args );
