@@ -31,7 +31,7 @@ get_header();
                         <?php
                         $opponent_users = get_users();
                         foreach ( $opponent_users as $user ) { ?>
-                            <option data-avatar="<?php echo get_avatar_url( $user->ID ); ?>" value="<?php echo $user->ID; ?>" <?php if ( $user->ID == get_current_user_id() ) : echo 'selected="selected"'; endif; ?>><?php echo $user->data->display_name; ?></option>
+                            <option data-avatar="<?php echo get_avatar_src( get_avatar( $user->ID )); ?>" value="<?php echo $user->ID; ?>" <?php if ( $user->ID == get_current_user_id() ) : echo 'selected="selected"'; endif; ?>><?php echo $user->data->display_name; ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -56,7 +56,7 @@ get_header();
                         );
                         $opponent_users = get_users( $args );
                         foreach ( $opponent_users as $user ) { ?>
-                            <option data-avatar="<?php echo get_avatar_url( $user->ID ); ?>" value="<?php echo $user->ID; ?>"><?php echo $user->data->display_name; ?></option>
+                            <option data-avatar="<?php echo get_avatar_src ( get_avatar ( $user->ID ) ); ?>" value="<?php echo $user->ID; ?>"><?php echo $user->data->display_name; ?></option>
                         <?php } ?>
                     </select>
                     <label for="secondUserScore" hidden><?php _e( 'Second user score:', 'framework' ) ?></label>
