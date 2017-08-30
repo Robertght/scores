@@ -14,10 +14,14 @@ $blogusers = get_users( $args ); ?>
 				<li>
                     <a href="<?php echo '/author/' . $user->data->user_login; ?>">
 						<div class="row-group">
-							<?php echo get_avatar( $user->ID ); ?>
-							<?php echo '<div class="user-name">' . esc_html( $user->display_name ) . '</div>' ?> </div>
+							<?php
+                                echo get_avatar( $user->ID );
+                                $userdata = get_userdata( $user->ID );
+                            ?>
+
+							<?php echo '<div class="user-name">' . esc_html( $userdata->first_name ) . '</div>' ?> </div>
 						<div class="row-group">
-							<?php echo '<div class="row-score">Level ' . get_user_meta( $user->ID, 'experience_level', true ) . '</div>' ?>
+							<?php echo '<div class="row-score">lvl ' . get_user_meta( $user->ID, 'experience_level', true ) . '</div>' ?>
 							<?php
                             if ( get_user_meta( $user->ID, 'experience', true ) ) {
                                 echo '<div class="row-xp">' . get_user_meta( $user->ID, 'experience', true ) . '</div>';

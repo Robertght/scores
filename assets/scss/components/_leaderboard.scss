@@ -17,7 +17,6 @@
 				justify-content: space-between;
 				padding-top: 10px;
 				color: #ffffff;
-				text-transform: capitalize;
 				text-decoration: none;
 				font-weight: bold;
 				font-size: 18px;
@@ -57,5 +56,6 @@
 }
 
 .row-xp {
-    flex-basis: 5em;
+    width: 3em;
+    text-align: right;
 }
