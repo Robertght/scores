@@ -120,6 +120,8 @@ if ( isset( $_POST['submitted'] ) ) {
 	}
 
 	wp_insert_post( $post_information );
+
+	wp_redirect ( home_url() );
 }
 
 get_footer();
