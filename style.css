@@ -1540,4 +1540,7 @@ html, body, #page {
     height: auto;
     margin-right: 20px; }
 
+.home .js-back {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */
