@@ -54,6 +54,9 @@
 	margin-top: 20px;
 }
 
+.row-title {
+ @extend %row-title;
+}
 
 .author-profile-card {
 	@extend %wrapper-content;
