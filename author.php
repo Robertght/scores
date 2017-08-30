@@ -29,6 +29,10 @@ $curauth = get_queried_object();
 			?>%"></div>
 		</div>
 	</div>
+
+</div>
+
+<div class="row-widgets">
 	<div class="user-badges">
 		<div class="row-title badges-title">Badges</div>
 		<?php
