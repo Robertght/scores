@@ -92,6 +92,12 @@ if ( isset( $_POST['submitted'] ) ) {
 	$second_user_score = get_user_meta ( $_POST['secondUserName'], 'experience' , true );
 
 	$match_points = calculate_experience($_POST['firstUserScore'], $_POST['secondUserScore']);
+	update_user_meta( $_POST['firstUserName'], 'experience', $match_points[0] );
+	update_user_meta( $_POST['secondUserName'], 'experience', $match_points[1] );
+
+	update_level( $_POST['firstUserName'] );
+	update_level( $_POST['secondUserName'] );
+
 	if ( $_POST['firstUserScore'] > $_POST['secondUserScore'] ) {
 		check_badges( $_POST['firstUserName'],  $_POST['firstUserScore'], 'win', $_POST['sportType']);
 		check_badges( $_POST['secondUserName'],  $_POST['secondUserScore'], 'lose', $_POST['sportType']);
