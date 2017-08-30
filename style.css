@@ -1271,7 +1271,7 @@ body, html {
   .user-badges a, .user-badges img {
     display: block; }
 
-.author-profile-card .badges-title {
+.row-title, .author-profile-card .badges-title {
   text-transform: uppercase;
   margin-top: 20px; }
 
@@ -1303,6 +1303,53 @@ body, html {
   font-weight: bold;
   color: #979797;
   padding: 15px 20px; }
+
+.leaderbord {
+  padding: 20px; }
+  .leaderbord > ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; }
+    .leaderbord > ul > li > a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      padding-top: 10px;
+      color: #ffffff;
+      text-transform: capitalize;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.05em; }
+      .leaderbord > ul > li > a > * {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+      .leaderbord > ul > li > a > img {
+        -ms-flex-preferred-size: 90%;
+            flex-basis: 90%; }
+      .leaderbord > ul > li > a .row-group > * {
+        padding-right: 15px; }
+      .leaderbord > ul > li > a .row-group :last-child {
+        padding-right: 0; }
+      .leaderbord > ul > li > a .row-score {
+        padding-right: 20px; }
 
 .c-progress {
   position: relative;
