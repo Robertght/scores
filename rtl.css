@@ -1256,7 +1256,7 @@ body, html {
 .single-badge .badge_thumbnail > img {
   width: 200px; }
 
-.row-widgets, .single-badge {
+.row-widgets, .home-matches, .single-badge {
   text-align: center;
   padding: 20px; }
 
@@ -1281,6 +1281,9 @@ body, html {
 .row-title, .badges-title {
   text-transform: uppercase;
   margin-top: 20px; }
+
+.row-title {
+  text-align: right; }
 
 .author-profile-card {
   position: relative;
@@ -1354,6 +1357,40 @@ body, html {
     right: 0;
     height: 100%;
     background: #000000; }
+
+.matches,
+.home-matches {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .matches .lose,
+  .home-matches .lose {
+    color: red; }
+  .matches .win,
+  .home-matches .win {
+    color: green; }
+  .matches ul,
+  .home-matches ul {
+    margin-top: 10px; }
+  .matches li,
+  .home-matches li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
 
 .single-badge .badge_thumbnail > img {
   border-radius: 15%; }
@@ -1617,10 +1654,5 @@ html, body, #page {
 
 .home .js-back {
   display: none; }
-
-.matches li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
 
 /*# sourceMappingURL=to.css.map */
