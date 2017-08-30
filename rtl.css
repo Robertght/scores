@@ -1044,8 +1044,11 @@ body, html {
   margin: 0; }
 
 #page {
-  width: 100%;
-  margin: 54px 0; }
+  width: 100%; }
+  #page:before {
+    content: "";
+    display: block;
+    height: 54px; }
   #page:after {
     content: "";
     display: block;
@@ -1237,23 +1240,23 @@ body, html {
  * 4.0 - Components
  */
 .site-title,
-.site-title > *, .author-profile-card .user-name, .single-badge .badge_title {
+.site-title > *, .single-badge .badge_title {
   font-size: 30px;
   font-weight: bold;
   color: #EEEEEE;
   margin-top: 20px; }
 
-.author-profile-card .user-level, .single-badge .badge_owned {
+.single-badge .badge_owned {
   font-size: 20px;
   color: #F5A623;
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 5px; }
 
-.author-profile-card .user-photo > img, .single-badge .badge_thumbnail > img {
+.single-badge .badge_thumbnail > img {
   width: 200px; }
 
-.author-profile-card, .row-widgets, .single-badge {
+.row-widgets, .single-badge {
   text-align: center;
   padding: 20px; }
 
@@ -1280,10 +1283,11 @@ body, html {
   margin-top: 20px; }
 
 .author-profile-card {
-  background: url("assets/images/card_background.png");
-  background-repeat: no-repeat;
+  position: relative;
+  background: url("assets/images/card_background.png") no-repeat;
   background-size: contain;
-  background-position: center center;
+  width: 200px;
+  height: 267px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1293,51 +1297,63 @@ body, html {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  min-height: 380px;
-  max-width: 390px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
   .author-profile-card > * {
     color: #000000 !important; }
   .author-profile-card .user-name {
+    font-size: 18px;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
     text-transform: uppercase;
-    margin-top: -11px; }
+    margin-top: 3px; }
   .author-profile-card .user-photo {
+    height: 148px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1; }
     .author-profile-card .user-photo > img {
-      padding: 10px; }
+      margin-top: auto; }
   .author-profile-card .user-level {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
-    margin-top: 35px; }
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    left: 0;
+    text-align: center; }
   .author-profile-card .user-xp {
-    margin-top: 10px;
+    margin-top: 8px;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    width: 70%; }
+    margin-right: 20px;
+    margin-left: 20px;
+    -ms-flex-item-align: stretch;
+        align-self: stretch; }
   .author-profile-card .user-xp-label {
     text-align: left;
-    margin-bottom: 5px; }
+    margin-bottom: 4px;
+    font-size: 14px; }
   .author-profile-card .user-xp-progress {
     position: relative;
     width: 100%;
     height: 5px;
-    background: #555; }
+    background: rgba(0, 0, 0, 0.2); }
   .author-profile-card .user-xp-progress-bar {
     position: absolute;
     top: 0;
     right: 0;
     height: 100%;
-    background: #FFFFFF; }
+    background: #000000; }
 
 .single-badge .badge_thumbnail > img {
   border-radius: 15%; }
@@ -1479,6 +1495,7 @@ html, body, #page {
 
 .add-match {
   height: 100%;
+  height: calc(100% - 118px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1542,7 +1559,8 @@ html, body, #page {
   background: transparent;
   color: white;
   border: 0;
-  font-size: 48px; }
+  font-size: 48px;
+  max-width: 100%; }
 
 .add-match-increase {
   background: green;
@@ -1559,6 +1577,15 @@ html, body, #page {
   border: 0;
   width: 100%;
   padding: 20px; }
+
+.add-match-sport select {
+  display: block;
+  text-align: center;
+  background: white;
+  padding: 1em;
+  border: 0;
+  border-radius: 0;
+  width: 100%; }
 
 .badge-list {
   padding: 20px; }
@@ -1580,7 +1607,20 @@ html, body, #page {
     height: auto;
     margin-left: 20px; }
 
+#header a,
+#header .fa,
+.footer-nav a {
+  background: -webkit-gradient(linear, right top, right bottom, color-stop(10%, #fff), color-stop(50%, #ccc), color-stop(50%, #666), to(#fff));
+  background: linear-gradient(to bottom, #fff 10%, #ccc 50%, #666 50%, #fff);
+  -webkit-background-clip: text;
+  color: transparent; }
+
 .home .js-back {
   display: none; }
+
+.matches li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
 
 /*# sourceMappingURL=to.css.map */

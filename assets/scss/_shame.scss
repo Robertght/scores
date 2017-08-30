@@ -9,6 +9,8 @@ html, body, #page {
 
 .add-match {
     height: 100%;
+    height: calc(100% - 118px);
+
     display: flex;
     flex-direction: column;
 }
@@ -64,6 +66,7 @@ html, body, #page {
     color: white;
     border: 0;
     font-size: 48px;
+    max-width: 100%;
 }
 
 .add-match-increase {
@@ -87,6 +90,16 @@ html, body, #page {
         padding: 20px;
 
     }
+}
+
+.add-match-sport select {
+    display: block;
+    text-align: center;
+    background: white;
+    padding: 1em;
+    border: 0;
+    border-radius: 0;
+    width: 100%;
 }
 
 .badge-list {
@@ -114,6 +127,18 @@ html, body, #page {
     }
 }
 
+#header a,
+#header .fa,
+.footer-nav a {
+    background: linear-gradient(to bottom, #fff 10%, #ccc 50%, #666 50%, #fff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 .home .js-back{
     display: none;
+}
+
+.matches li {
+    display: flex;
 }
