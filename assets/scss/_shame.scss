@@ -20,6 +20,29 @@ html, body, #page {
     flex-direction: column;
 }
 
+.add-match-avatar {
+    width: 96px;
+    height: 96px;
+    flex-basis: 96px;
+    flex-shrink: 0;
+
+    img {
+        display: block;
+    }
+}
+
+.add-match-content {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+    margin-left: 20px;
+    margin-top: auto;
+
+    > * {
+        margin-left: 20px;
+    }
+}
+
 .add-match-controls {
     display: flex;
     margin-top: auto;
@@ -30,7 +53,10 @@ html, body, #page {
     border: 0;
     background: transparent;
     outline: 0;
-    margin-top: auto;
+}
+
+.add-match-info {
+    overflow: hidden;
 }
 
 .add-match-score {
@@ -45,7 +71,8 @@ html, body, #page {
     color: white;
 }
 
-.add-match-decrease {
+.add-match-decrease[class] {
+    display: none;
     background: red;
     color: white;
 }

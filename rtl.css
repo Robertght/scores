@@ -1407,6 +1407,29 @@ html, body, #page {
       -ms-flex-direction: column;
           flex-direction: column; }
 
+.add-match-avatar {
+  width: 96px;
+  height: 96px;
+  -ms-flex-preferred-size: 96px;
+      flex-basis: 96px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; }
+  .add-match-avatar img {
+    display: block; }
+
+.add-match-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-top: auto; }
+  .add-match-content > * {
+    margin-right: 20px; }
+
 .add-match-controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1417,8 +1440,10 @@ html, body, #page {
   color: white;
   border: 0;
   background: transparent;
-  outline: 0;
-  margin-top: auto; }
+  outline: 0; }
+
+.add-match-info {
+  overflow: hidden; }
 
 .add-match-score {
   background: transparent;
@@ -1430,7 +1455,8 @@ html, body, #page {
   background: green;
   color: white; }
 
-.add-match-decrease {
+.add-match-decrease[class] {
+  display: none;
   background: red;
   color: white; }
 
